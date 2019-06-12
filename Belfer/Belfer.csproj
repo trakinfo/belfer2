@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A7B9237-D444-4B1B-94C6-860FE2E43A3B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Belfer</RootNamespace>
+    <AssemblyName>Belfer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.9.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>Belfer.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Belfer_48.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>140057C9890C55FDAD4A5548CAA367214998FD4A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Belfer_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>packages\Autofac.4.9.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>packages\CsvHelper.12.1.2\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Independentsoft.Office.Odf, Version=2.0.520.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Independentsoft.Office.Odf.2.0.520\lib\net45\Independentsoft.Office.Odf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=3.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.Schema.3.0.11\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBelfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBelfer.Designer.cs">
+      <DependentUpon>AboutBelfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\SQL.cs" />
+    <Compile Include="DataBaseContext\ConnectionAssistant.cs" />
+    <Compile Include="DataBaseContext\dlgConnectParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseContext\dlgConnectParams.designer.cs">
+      <DependentUpon>dlgConnectParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseContext\JSonHelper.cs" />
+    <Compile Include="DataBaseContext\ConnectionParams.cs" />
+    <Compile Include="Dziennik\SQL.cs" />
+    <Compile Include="Dziennik\Uczniowie\Student.cs" />
+    <Compile Include="Dziennik\Uczniowie\StudentAllocation.cs" />
+    <Compile Include="Nadzor\Klasyfikacja\Analysis.cs" />
+    <Compile Include="Authentication.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="CommonClasses.cs" />
+    <Compile Include="Ustawienia\dlgCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgCity.Designer.cs">
+      <DependentUpon>dlgCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgExclusion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgExclusion.Designer.cs">
+      <DependentUpon>dlgExclusion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgImportSchoolClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgImportSchoolClass.Designer.cs">
+      <DependentUpon>dlgImportSchoolClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgImportSubjectScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgImportSubjectScheme.Designer.cs">
+      <DependentUpon>dlgImportSubjectScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgLogin.Designer.cs">
+      <DependentUpon>dlgLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\dlgManyUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\dlgManyUsers.Designer.cs">
+      <DependentUpon>dlgManyUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgObsada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgObsada.Designer.cs">
+      <DependentUpon>dlgObsada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgPassword.Designer.cs">
+      <DependentUpon>dlgPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgPrintPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPrintPreview.designer.cs">
+      <DependentUpon>dlgPrintPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgPrivilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgPrivilege.Designer.cs">
+      <DependentUpon>dlgPrivilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgExclusionEdition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgExclusionEdition.Designer.cs">
+      <DependentUpon>dlgExclusionEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgPrivilegeEdition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgPrivilegeEdition.Designer.cs">
+      <DependentUpon>dlgPrivilegeEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSchool.Designer.cs">
+      <DependentUpon>dlgSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSchoolClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSchoolClass.Designer.cs">
+      <DependentUpon>dlgSchoolClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dziennik\Uczniowie\dlgStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dziennik\Uczniowie\dlgStudent.Designer.cs">
+      <DependentUpon>dlgStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSchoolType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSchoolType.Designer.cs">
+      <DependentUpon>dlgSchoolType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgTeacher.Designer.cs">
+      <DependentUpon>dlgTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\dlgUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\dlgUser.Designer.cs">
+      <DependentUpon>dlgUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgWait.designer.cs">
+      <DependentUpon>dlgWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\dlgWorkingParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgWorkingParams.Designer.cs">
+      <DependentUpon>dlgWorkingParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nadzor\Kontrola\frmKontrolaLiczbyOcen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nadzor\Kontrola\frmKontrolaLiczbyOcen.designer.cs">
+      <DependentUpon>frmKontrolaLiczbyOcen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nadzor\Kontrola\frmKontrolaNieobecnosci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nadzor\Kontrola\frmKontrolaNieobecnosci.designer.cs">
+      <DependentUpon>frmKontrolaNieobecnosci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nadzor\Kontrola\frmKontrolaOcen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nadzor\Kontrola\frmKontrolaOcen.designer.cs">
+      <DependentUpon>frmKontrolaOcen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchoolType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchoolType.Designer.cs">
+      <DependentUpon>frmSchoolType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmNauczyciel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmNauczyciel.Designer.cs">
+      <DependentUpon>frmNauczyciel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmObsada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmObsada.Designer.cs">
+      <DependentUpon>frmObsada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmPrivilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmPrivilege.Designer.cs">
+      <DependentUpon>frmPrivilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchool.Designer.cs">
+      <DependentUpon>frmSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchoolClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchoolClass.Designer.cs">
+      <DependentUpon>frmSchoolClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmSimc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmSimc.Designer.cs">
+      <DependentUpon>frmSimc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dziennik\Uczniowie\frmStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dziennik\Uczniowie\frmStudent.Designer.cs">
+      <DependentUpon>frmStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nadzor\Klasyfikacja\frmZbiorczaAnalizaOcen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nadzor\Klasyfikacja\frmZbiorczaAnalizaOcen.designer.cs">
+      <DependentUpon>frmZbiorczaAnalizaOcen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nadzor\Klasyfikacja\frmZbiorczyWykazEgzaminPoprawkowy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nadzor\Klasyfikacja\frmZbiorczyWykazEgzaminPoprawkowy.designer.cs">
+      <DependentUpon>frmZbiorczyWykazEgzaminPoprawkowy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nadzor\SQL.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Ustawienia\frmTutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmTutor.Designer.cs">
+      <DependentUpon>frmTutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\Simc.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globals.cs" />
+    <Compile Include="MainForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQL.cs" />
+    <Compile Include="Ustawienia\SQL.cs" />
+    <EmbeddedResource Include="AboutBelfer.resx">
+      <DependentUpon>AboutBelfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataBaseContext\dlgConnectParams.resx">
+      <DependentUpon>dlgConnectParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgCity.resx">
+      <DependentUpon>dlgCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgExclusion.resx">
+      <DependentUpon>dlgExclusion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgImportSchoolClass.resx">
+      <DependentUpon>dlgImportSchoolClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgImportSubjectScheme.resx">
+      <DependentUpon>dlgImportSubjectScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgLogin.resx">
+      <DependentUpon>dlgLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\dlgManyUsers.resx">
+      <DependentUpon>dlgManyUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgObsada.resx">
+      <DependentUpon>dlgObsada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgPassword.resx">
+      <DependentUpon>dlgPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPrintPreview.resx">
+      <DependentUpon>dlgPrintPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgPrivilege.resx">
+      <DependentUpon>dlgPrivilege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgExclusionEdition.resx">
+      <DependentUpon>dlgExclusionEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgPrivilegeEdition.resx">
+      <DependentUpon>dlgPrivilegeEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgSchool.resx">
+      <DependentUpon>dlgSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgSchoolClass.resx">
+      <DependentUpon>dlgSchoolClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dziennik\Uczniowie\dlgStudent.resx">
+      <DependentUpon>dlgStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgSchoolType.resx">
+      <DependentUpon>dlgSchoolType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgTeacher.resx">
+      <DependentUpon>dlgTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\dlgUser.resx">
+      <DependentUpon>dlgUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgWait.resx">
+      <DependentUpon>dlgWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgWorkingParams.resx">
+      <DependentUpon>dlgWorkingParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nadzor\Kontrola\frmKontrolaLiczbyOcen.resx">
+      <DependentUpon>frmKontrolaLiczbyOcen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nadzor\Kontrola\frmKontrolaNieobecnosci.resx">
+      <DependentUpon>frmKontrolaNieobecnosci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nadzor\Kontrola\frmKontrolaOcen.resx">
+      <DependentUpon>frmKontrolaOcen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmSchoolType.resx">
+      <DependentUpon>frmSchoolType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmNauczyciel.resx">
+      <DependentUpon>frmNauczyciel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmObsada.resx">
+      <DependentUpon>frmObsada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmPrivilege.resx">
+      <DependentUpon>frmPrivilege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmSchool.resx">
+      <DependentUpon>frmSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmSchoolClass.resx">
+      <DependentUpon>frmSchoolClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmSimc.resx">
+      <DependentUpon>frmSimc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dziennik\Uczniowie\frmStudent.resx">
+      <DependentUpon>frmStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nadzor\Klasyfikacja\frmZbiorczaAnalizaOcen.resx">
+      <DependentUpon>frmZbiorczaAnalizaOcen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nadzor\Klasyfikacja\frmZbiorczyWykazEgzaminPoprawkowy.resx">
+      <DependentUpon>frmZbiorczyWykazEgzaminPoprawkowy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmTutor.resx">
+      <DependentUpon>frmTutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Belfer_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 i x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Belfer_48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Belfer_48.ico" />
+    <None Include="Resources\open_24.png" />
+    <None Include="Resources\refresh_24.png" />
+    <None Include="Resources\sorting_24.png" />
+    <None Include="Resources\strikeout_24.png" />
+    <None Include="Resources\print_24.png" />
+    <None Include="Resources\Import_24T.png" />
+    <None Include="Resources\Save_24.png" />
+    <None Include="Resources\DelTeacher_24T.png" />
+    <None Include="Resources\EditTeacher_24T.png" />
+    <None Include="Resources\AddTeacher_24T.png" />
+    <None Include="Resources\Password_24T.png" />
+    <None Include="Resources\users_edit_24T.png" />
+    <None Include="Resources\users_delete_24T.png" />
+    <None Include="Resources\users_delete_48.png" />
+    <None Include="Resources\AddUser_24T.png" />
+    <None Include="Resources\AddUsers_24T.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\del_24.png" />
+    <None Include="Resources\add_24.png" />
+    <None Include="Resources\close_22.png" />
+    <None Include="Resources\ConnConnecting.png" />
+    <None Include="Resources\ConnOpen.png" />
+    <None Include="Resources\ConnClosed.png" />
+    <None Include="Resources\SSL.png" />
+    <None Include="Resources\NoSSL.png" />
+    <None Include="Resources\Absencja_32T.png" />
+    <None Include="Resources\Wyniki_32T.png" />
+    <None Include="Resources\kalendarz_32T.png" />
+    <None Include="Resources\Zagrozenie_32T.png" />
+    <None Include="Resources\Logout_32T.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\close_32.png" />
+    <None Include="Resources\Zachowanie_32T.png" />
+    <None Include="Resources\temat_32T.png" />
+    <None Include="Resources\Uwagi_32T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataBaseService\DataBaseService.csproj">
+      <Project>{eeeeebc7-60b1-4a51-8295-9d4322038c01}</Project>
+      <Name>DataBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Enigma\Enigma.csproj">
+      <Project>{3e299997-e34a-4b9b-8cb3-6cb963b685ba}</Project>
+      <Name>Enigma</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties UserSettings_1json__JSONSchema="http://jsonapi.org/schema" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

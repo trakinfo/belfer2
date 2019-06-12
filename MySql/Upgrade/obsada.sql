@@ -1,0 +1,2 @@
+INSERT INTO belfer2.obsada(ID,Klasa,Przedmiot,Kategoria,GetToAverage,DataAktywacji,DataDeaktywacji,LiczbaGodzin,Owner,User,ComputerIP,Version)
+SELECT ID,Klasa,Przedmiot,Kategoria,GetToAverage,DataAktywacji,'2017-08-31',LiczbaGodzin,Owner,User,ComputerIP,Version FROM obsada WHERE RokSzkolny='2016/2017' AND DataDeaktywacji is NULL

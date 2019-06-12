@@ -1,0 +1,13 @@
+RM;Nazwa;Owner;User;ComputerIP;Version
+0; część miejscowości ;Admin;Admin;localhost;
+1; wieś ;Admin;Admin;localhost;
+2; kolonia ;Admin;Admin;localhost;
+3; przysiółek ;Admin;Admin;localhost;
+4; osada ;Admin;Admin;localhost;
+5; osada leśna;Admin;Admin;localhost;
+6; osiedle ;Admin;Admin;localhost;
+7; schronisko turystyczne;Admin;Admin;localhost;
+95; dzielnica m. st. Warszawy ;Admin;Admin;localhost;
+96; miasto ;Admin;Admin;localhost;
+98; delegatura ;Admin;Admin;localhost;
+99; część miasta;Admin;Admin;localhost;

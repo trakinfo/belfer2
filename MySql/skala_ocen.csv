@@ -1,0 +1,34 @@
+Ocena;Nazwa;Alias;Waga;Typ;PodTyp;SortOrder;Owner;User;ComputerIP
+nkl;nieklasyfikowany;nkl;0.00;PZ;K;1;Admin;Admin;localhost
+1!;niedostateczny !;ndst !;1.00;P;C;4;Admin;Admin;localhost
+1;niedostateczny;ndst;1.00;P;CK;2;Admin;Admin;localhost
+1+;niedostateczny +;ndst +;1.50;P;C;3;Admin;Admin;localhost
+2=;dopuszczający =;dps =;1.70;P;C;8;Admin;Admin;localhost
+2-;dopuszczający -;dps -;1.80;P;C;7;Admin;Admin;localhost
+2;dopuszczający;dps;2.00;P;CK;5;Admin;Admin;localhost
+2+;dopuszczający +;dps +;2.50;P;C;6;Admin;Admin;localhost
+3=;dostateczny =;dst =;2.70;P;C;12;Admin;Admin;localhost
+3-;dostateczny -;dst -;2.80;P;C;11;Admin;Admin;localhost
+3;dostateczny;dst;3.00;P;CK;9;Admin;Admin;localhost
+3+;dostateczny +;dst +;3.50;P;C;10;Admin;Admin;localhost
+4=;dobry =;db =;3.70;P;C;16;Admin;Admin;localhost
+4-;dobry -;db -;3.80;P;C;15;Admin;Admin;localhost
+4;dobry;db;4.00;P;CK;13;Admin;Admin;localhost
+4+;dobry +;db +;4.50;P;C;14;Admin;Admin;localhost
+5-;bardzo dobry -;bdb -;4.80;P;C;19;Admin;Admin;localhost
+5;bardzo dobry;bdb;5.00;P;CK;17;Admin;Admin;localhost
+5+;bardzo dobry +;bdb +;5.50;P;C;18;Admin;Admin;localhost
+6-;celujący -;cel -;5.80;P;C;21;Admin;Admin;localhost
+6;celujący;cel;6.00;P;CK;20;Admin;Admin;localhost
+wz;wzorowe;wz;6.00;Z;K;30;Admin;Admin;localhost
+pop;poprawne;pop;3.00;Z;K;33;Admin;Admin;localhost
+ndp;nieodpowiednie;ndp;2.00;Z;K;34;Admin;Admin;localhost
+zal;zaliczony;zal;-1.00;P;K;41;Admin;Admin;localhost
+ucz;uczestniczył;uczest;-1.00;P;K;40;Admin;Admin;localhost
+db;dobre;db;4.00;Z;K;32;Admin;Admin;localhost
+bdb;bardzo dobre;bdb;5.00;Z;K;31;Admin;Admin;localhost
+ngn;naganne;ngn;1.00;Z;K;35;Admin;Admin;localhost
+zw;zwolniony(a);zw;-1.00;P;K;42;Admin;Admin;localhost
+?;niezaliczony;nzl;0.00;P;C;43;Admin;Admin;localhost
+x;nieudane podejście;nu;0.00;P;C;44;Admin;Admin;localhost
+oo;ocena opisowa;oo;0.00;PZ;K;45;Admin;Admin;localhost

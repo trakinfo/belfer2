@@ -1,0 +1,22 @@
+Name;Value;Type;Description;IdSchool;StartDate;EndDate;Owner;User;ComputerIP
+DBVersion;1.0;G;Wersja bazy danych;;;;Admin;Admin;localhost
+AutoAcceptOffset;3;G;Czas (w dniach), po którym następuje automatyczne zatwierdzenie reklamacji nieobecności;;;;Admin;Admin;localhost
+ColNumber;10;G;Domyślna liczba kolumn wynikowych dla ocen cząstkowych. Liczba kolumn dodawanych automatycznie w trakcie obsadzania przedmiotów na dany rok szkolny.;;;;Admin;Admin;localhost
+MaxColNumber;100;G;Maksymalna liczba kolumn wynikowych dla ocen cząstkowych;;;;Admin;Admin;localhost
+MaxPion;3;G;Najwyższy pion klas w szkole;;;;Admin;Admin;localhost
+MinPion;;G;Najniższy pion klas w szkole;;;;Admin;Admin;localhost
+Semester2StartDate;2017-02-08;G;Początek drugiego semestru w roku szkolnym 2015/2016;;2015-09-01;2016-08-31;Admin;Admin;localhost
+XCaliber;-1;G;Wartość przesunięcia współrzędnej X na wydruku, wyrażona w mm;;;;Admin;Admin;localhost
+YCaliber;0;G;Wartość przesunięcia współrzędnej Y na wydruku, wyrażona w mm;;;;Admin;Admin;localhost
+DataRPSemestr;2015-01-15;G;Data klasyfikacyjnego posiedzenia Rady Pedagogicznej za I semestr;;2014-09-01;2015-08-31;Admin;Admin;localhost
+DataRPRokSzkolny;2015-06-15;G;Data klasyfikacyjnego posiedzenia Rady Pedagogicznej za rok szkolny;;2014-09-01;2015-08-31;Admin;Admin;localhost
+DataRPSemestr;2016-01-14;G;Data klasyfikacyjnego posiedzenia Rady Pedagogicznej za I semestr;;2015-09-01;2016-08-31;Admin;Admin;localhost
+DataRPRokSzkolny;2016-06-17;G;Data klasyfikacyjnego posiedzenia Rady Pedagogicznej za rok szkolny;;2015-09-01;2016-08-31;Admin;Admin;localhost
+PasekAvg;4,75;G;średnia ocen do świadectwa z wyróżnieniem;;2014-09-01;;Admin;Admin;localhost
+PasekBehavior;5;G;Ocena zachowania do świadectwa z wyróżnieniem;;2014-09-01;;Admin;Admin;localhost
+DyplomAvg;4,5;G;średnia ocen do dyplomu;;2014-09-01;;Admin;Admin;localhost
+DyplomBehavior;5;G;Ocena zachowania do dyplomu;;2014-09-01;;Admin;Admin;localhost
+DyplomFrekwencja;90;G;Frekwencja do dyplomu;;2014-09-01;;Admin;Admin;localhost
+PrevYearMaxPionAvg;;G;Uwzględnij przedmioty z poprzednich lat przy liczeniu średniej ocen ostatniego rocznika;;2014-09-01;;Admin;Admin;localhost
+Semester2StartDate;2017-02-06;G;Początek drugiego semestru w roku szkolnym 2016/2017;;2016-09-01;2017-08-31;Admin;Admin;localhost
+MinPasswordLength;10;G;Minimalna długość hasła;;;;Admin;Admin;localhost

@@ -1,0 +1,2 @@
+INSERT INTO belfer2.szkola_klasa(ID,IdSzkola,KodKlasy,RokSzkolny,NazwaKlasy,Virtual,Owner,User,ComputerIP,Version)
+SELECT distinct s.ID,s.IdSzkola,s.Kod_Klasy,'2016/2017',s.Nazwa_Klasy,s.Virtual,s.Owner,s.User,s.ComputerIP,s.Version FROM belfer.szkola_klasa s INNER JOIN belfer.obsada o ON o.Klasa=s.ID WHERE o.RokSzkolny='2016/2017';

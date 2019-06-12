@@ -1,0 +1,8 @@
+RODZ;NAZWA_DOD;Komentarz;Owner;User;ComputerIP;Version
+1;gmina miejska;gmina miejska oznacza gminę o statusie miasta;Admin;Admin;localhost;
+2;gmina wiejska;gmina wiejska – na jej terenie znajdują się wyłącznie wsie;Admin;Admin;localhost;
+3;gmina miejsko-wiejska;gmina miejsko-wiejska to jednostka, na terenie której jedna z miejscowości ma status miasta, a pozostały teren tej gminy stanowi jej obszar wiejski;Admin;Admin;localhost;
+4;miasto;miasto w gminie miejsko-wiejskiej;Admin;Admin;localhost;
+5;obszar wiejski;obszar wiejski w gminie miejsko-wiejskiej;Admin;Admin;localhost;
+8;dzielnica;dzielnica – jednostka pomocnicza w m. st. Warszawa;Admin;Admin;localhost;
+9;delegatura;delegatura – dawna dzielnica w miastach: Kraków, Łódź, Poznań i Wrocław;Admin;Admin;localhost;

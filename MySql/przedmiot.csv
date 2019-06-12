@@ -1,0 +1,26 @@
+Alias;Nazwa;Typ;Priorytet;Owner;User;ComputerIP
+gw;zachowanie;Z;4;Admin;Admin;localhost
+informatyka;informatyka;P;16;Admin;Admin;localhost
+zaj. tech.;zajęcia techniczne;P;19;Admin;Admin;localhost
+j. polski;język polski;P;5;Admin;Admin;localhost
+j. angielski;język angielski;P;6;Admin;Admin;localhost
+j. niemiecki;język niemiecki;P;7;Admin;Admin;localhost
+matematyka;matematyka;P;11;Admin;Admin;localhost
+fizyka;fizyka;P;12;Admin;Admin;localhost
+chemia;chemia;P;14;Admin;Admin;localhost
+historia;historia;P;8;Admin;Admin;localhost
+wos;wiedza o społeczeństwie;P;9;Admin;Admin;localhost
+religia;religia;P;3;Admin;Admin;localhost
+w-f;wychowanie fizyczne;P;20;Admin;Admin;localhost
+biologia;biologia;P;13;Admin;Admin;localhost
+geografia;geografia;P;10;Admin;Admin;localhost
+plastyka;plastyka;P;18;Admin;Admin;localhost
+muzyka;muzyka;P;17;Admin;Admin;localhost
+przyroda;przyroda;P;15;Admin;Admin;localhost
+wdżwr;wychowanie do życia w rodzinie;F;21;Admin;Admin;localhost
+zaj. świet.;zajęcia świetlicowe;F;23;Admin;Admin;localhost
+rewalidacja;rewalidacja;F;24;Admin;Admin;localhost
+edb;edukacja dla bezpieczeństwa;P;22;Admin;Admin;localhost
+zaj. art.;zajęcia artystyczne;P;1;Admin;Admin;localhost
+zaj. z pedag.;zajęcia z pedagogiem;F;2;Admin;Admin;localhost
+wspomaganie;wspomaganie;F;25;Admin;Admin;localhost

@@ -1,0 +1,17 @@
+WOJ;NAZWA;Owner;User;ComputerIP;Version
+02;DOLNOŚLĄSKIE;Admin;Admin;localhost;
+04;KUJAWSKO-POMORSKIE;Admin;Admin;localhost;
+06;LUBELSKIE;Admin;Admin;localhost;
+08;LUBUSKIE;Admin;Admin;localhost;
+10;ŁÓDZKIE;Admin;Admin;localhost;
+12;MAŁOPOLSKIE;Admin;Admin;localhost;
+14;MAZOWIECKIE;Admin;Admin;localhost;
+16;OPOLSKIE;Admin;Admin;localhost;
+18;PODKARPACKIE;Admin;Admin;localhost;
+20;PODLASKIE;Admin;Admin;localhost;
+22;POMORSKIE;Admin;Admin;localhost;
+24;ŚLĄSKIE;Admin;Admin;localhost;
+26;ŚWIĘTOKRZYSKIE;Admin;Admin;localhost;
+28;WARMIŃSKO-MAZURSKIE;Admin;Admin;localhost;
+30;WIELKOPOLSKIE;Admin;Admin;localhost;
+32;ZACHODNIOPOMORSKIE;Admin;Admin;localhost;
