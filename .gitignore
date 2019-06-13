@@ -251,5 +251,4 @@ paket-files/
 .idea/
 *.sln.iml
 /MySql/belfer.mwb.bak
-/Install/sql.gimsusz.idsl.pl.json
-/Install/localhost.json
+/Install/

@@ -123,7 +123,7 @@ namespace Belfer
             sqlParamWithValue.Add("@KodKlasy", cbKlasa.Text);
             sqlParamWithValue.Add("@RokSzkolny", UserSession.User.Settings.SchoolYear);
             sqlParamWithValue.Add("@NazwaKlasy", txtNazwa.Text.Trim());
-            sqlParamWithValue.Add("@Virtual", chkVirtual.Checked);
+            sqlParamWithValue.Add("@IsVirtual", chkVirtual.Checked);
             sqlParamWithValue.Add("@Owner", UserSession.User.Login);
             sqlParamWithValue.Add("@User", UserSession.User.Login);
             sqlParamWithValue.Add("@IP", AppSession.HostIP);

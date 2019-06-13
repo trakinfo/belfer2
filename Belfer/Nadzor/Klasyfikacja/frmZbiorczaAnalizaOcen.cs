@@ -185,70 +185,6 @@ namespace Belfer
                 lstLiczbaUczniow = FetchStudentCount().Result;
                 lstLiczbaUczniowNI = FetchStudentNI().Result;
                 lstLiczbaUczniowGrupa = FetchSubjectGroupCount().Result;
-
-                #region Stara wersja kodu
-                #region sqlString
-                //string sqlString;
-                //sqlString = StatystykaSQL.SelectObsada(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear, rbOkres.Tag.ToString() == "S" ? EndOfSemester : EndOfSchoolYear);
-                //sqlString += StatystykaSQL.SelectLiczbaOcen(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear, rbOkres.Tag.ToString());
-                //sqlString += StatystykaSQL.SelectStanKlasy(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear, rbOkres.Tag.ToString() == "S" ? EndOfSemester : EndOfSchoolYear);
-                //sqlString += StatystykaSQL.SelectStanKlasyWirtualnej(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear, rbOkres.Tag.ToString() == "S" ? EndOfSemester : EndOfSchoolYear);
-                //sqlString += StatystykaSQL.CountGroupMember(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear); 
-                #endregion
-
-                //using (var R = new MySqlCommand(SqlString, AppSession.Conn).ExecuteReader())
-                //{
-                #region Obsada
-                //    lstObsada.Clear();
-                //    while (R.Read())
-                //    {
-                //        lstObsada.Add(new SubjectStaff { Class = new StaffUnit { ID = R.GetInt32("Klasa"),Nazwa=R.GetString("Nazwa_Klasy") },
-                //                                        Subject=new SubjectUnit { ID = R.GetInt32("IdPrzedmiot"), Nazwa = R.GetString("Przedmiot"), IdSzkolaPrzedmiot=R.GetInt32("IdSzkolaPrzedmiot")},
-                //                                        Teacher = new StaffUnit { ID = R.GetInt32("IdNauczyciel"), Nazwa = R.GetString("Nauczyciel") }, IsVirtual=R.GetBoolean("Virtual")
-                //                                        }
-                //                    );
-                //    } 
-                #endregion
-                //    R.NextResult();
-
-                #region LiczbaOcen
-                //    lstLiczbaOcen.Clear();
-                //    while (R.Read())
-                //    {
-                //        lstLiczbaOcen.Add(new ScoreInfo { ScoreCount = R.GetInt32("LiczbaOcen"), ScoreWeight = (int)R.GetFloat("Waga"), ClassID = R.GetInt32("Klasa"), SubjectID = R.GetInt32("IdPrzedmiot"), TeacherID = R.GetInt32("Nauczyciel") });
-                //    } 
-                #endregion
-                //    R.NextResult();
-
-                #region LiczbaUczniow
-                //    lstLiczbaUczniow.Clear();
-                //    while (R.Read())
-                //    {
-                //        lstLiczbaUczniow.Add(new StudentCount { ClassID=R.GetInt32("Klasa"), Count=R.GetInt32("StanKlasy") });
-                //    } 
-                #endregion
-                //    R.NextResult();
-
-                #region Liczba uczniow indywidualnych
-                //    lstLiczbaUczniowNI.Clear();
-                //    while (R.Read())
-                //    {
-                //        lstLiczbaUczniowNI.Add(new VirtualStudentCount { ClassID=R.GetInt32("Klasa"), Count=R.GetInt32("StanKlasy"), SubjectID=R.GetInt32("IdPrzedmiot"), VirtualClassID=R.GetInt32("KlasaWirtualna") });
-                //    } 
-                #endregion
-                //    R.NextResult();
-
-                #region Liczba uczniow w grupach
-                //    lstLiczbaUczniowGrupa.Clear();
-                //    while (R.Read())
-                //    {
-                //        lstLiczbaUczniowGrupa.Add(new SubjectGroupCount { ClassID = R.GetInt32("Klasa"), Count = R.GetInt32("StanGrupy"), SubjectID = R.GetInt32("IdPrzedmiot"),  SubjectIdBySchool = R.GetInt32("IdSzkolaPrzedmiot") });
-                //    } 
-                #endregion
-                //}
-                #endregion
-
-
             }
             catch (Exception)
             {
@@ -331,7 +267,7 @@ namespace Belfer
                         IdSzkolaPrzedmiot = Convert.ToInt32(R["IdSzkolaPrzedmiot"])
                     },
                     Teacher = new StaffUnit { ID = Convert.ToInt32(R["IdNauczyciel"]), Nazwa = R["Nauczyciel"].ToString() },
-                    IsVirtual = Convert.ToBoolean(R["Virtual"])
+                    IsVirtual = Convert.ToBoolean(R["IsVirtual"])
                 });
             }
         }

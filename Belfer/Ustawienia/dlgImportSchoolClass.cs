@@ -75,7 +75,7 @@ namespace Belfer
                     {
                         ClassName = R["NazwaKlasy"].ToString(),
                         ClassCode = R["KodKlasy"].ToString(),
-                        IsVirtual = (YesNo)Convert.ToInt64(R["Virtual"])
+                        IsVirtual = (YesNo)Convert.ToInt64(R["IsVirtual"])
                     });
                 }
             }
@@ -94,7 +94,7 @@ namespace Belfer
                 case 1://Nazwa klasy
                     olvKlasa.ModelFilter = new ModelFilter(x => ((SchoolClass)x).ClassName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
-                case 2: //Virtual
+                case 2: //IsVirtual
                     olvKlasa.ModelFilter = new ModelFilter(x => ((SchoolClass)x).IsVirtual.ToString().StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
             }
@@ -118,7 +118,7 @@ namespace Belfer
                         {"@KodKlasy", S.ClassCode },
                         {"@RokSzkolny", UserSession.User.Settings.SchoolYear },
                         {"@NazwaKlasy", S.ClassName },
-                        {"@Virtual", S.IsVirtual },
+                        {"@IsVirtual", S.IsVirtual },
                         {"@Owner", UserSession.User.Login },
                         {"@User", UserSession.User.Login },
                         {"@IP", AppSession.HostIP }

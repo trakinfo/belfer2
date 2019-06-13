@@ -1652,7 +1652,7 @@ CREATE TABLE `szkola_klasa` (
   `KodKlasy` varchar(3) COLLATE utf8_polish_ci NOT NULL,
   `RokSzkolny` varchar(9) COLLATE utf8_polish_ci NOT NULL,
   `NazwaKlasy` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
-  `Virtual` bit(1) NOT NULL DEFAULT b'0',
+  `IsVirtual` bit(1) NOT NULL DEFAULT b'0',
   `Owner` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
   `User` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `ComputerIP` varchar(15) COLLATE utf8_polish_ci DEFAULT NULL,

@@ -121,7 +121,7 @@ namespace Belfer
                 ID = Convert.ToInt32(R["ID"]),
                 ClassCode = R["KodKlasy"].ToString(),
                 ClassName = R["NazwaKlasy"].ToString(),
-                IsVirtual = (YesNo)Convert.ToInt64(R["Virtual"]),
+                IsVirtual = (YesNo)Convert.ToInt64(R["IsVirtual"]),
                 Creator = new Signature
                 {
                     Owner = R["Owner"].ToString(),
@@ -227,7 +227,7 @@ namespace Belfer
             var sqlParamWithValue = new Dictionary<string, object>();
             sqlParamWithValue.Add("@ID", id);
             sqlParamWithValue.Add("@NazwaKlasy", dlg.txtNazwa.Text.Trim());
-            sqlParamWithValue.Add("@Virtual", dlg.chkVirtual.Checked);
+            sqlParamWithValue.Add("@IsVirtual", dlg.chkVirtual.Checked);
             sqlParamWithValue.Add("@User", UserSession.User.Login);
             sqlParamWithValue.Add("@IP", AppSession.HostIP);
             return sqlParamWithValue;
@@ -298,7 +298,7 @@ namespace Belfer
                 case 1://Nazwa klasy
                     olvKlasa.ModelFilter = new ModelFilter(x => ((SchoolClass)x).ClassName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
-                case 2: //Virtual
+                case 2: //IsVirtual
                     olvKlasa.ModelFilter = new ModelFilter(x => ((SchoolClass)x).IsVirtual.ToString().StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
             }

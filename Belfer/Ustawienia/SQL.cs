@@ -149,7 +149,7 @@ namespace Belfer.Ustawienia
 		}
 		public static string SelectSchoolClassList(string SchoolId, string SchoolYear)
 		{
-			return "SELECT s.ID, s.KodKlasy, s.NazwaKlasy,s.Virtual,s.Owner,s.User,s.ComputerIP,s.Version FROM szkola_klasa s WHERE s.IdSzkola = '" + SchoolId + "' AND s.RokSzkolny = '" + SchoolYear + "' Order By s.KodKlasy;";
+			return "SELECT s.ID, s.KodKlasy, s.NazwaKlasy,s.IsVirtual,s.Owner,s.User,s.ComputerIP,s.Version FROM szkola_klasa s WHERE s.IdSzkola = '" + SchoolId + "' AND s.RokSzkolny = '" + SchoolYear + "' Order By s.KodKlasy;";
 		}
 		public static string SelectSchoolClassLine(string SchoolId, string SchoolYear)
 		{
@@ -157,7 +157,7 @@ namespace Belfer.Ustawienia
 		}
 		public static string InsertSchoolClass()
 		{
-			return "INSERT INTO szkola_klasa(IdSzkola,KodKlasy,RokSzkolny,NazwaKlasy,Virtual,Owner,User,ComputerIP) VALUES (@IdSzkola,@KodKlasy,@RokSzkolny,@NazwaKlasy,@Virtual,@Owner,@User,@IP);";
+			return "INSERT INTO szkola_klasa(IdSzkola,KodKlasy,RokSzkolny,NazwaKlasy,IsVirtual,Owner,User,ComputerIP) VALUES (@IdSzkola,@KodKlasy,@RokSzkolny,@NazwaKlasy,@IsVirtual,@Owner,@User,@IP);";
 		}
 
 		internal static string DeleteSchoolClass()
@@ -167,7 +167,7 @@ namespace Belfer.Ustawienia
 
 		internal static string UpdateSchoolClass()
 		{
-			return "UPDATE szkola_klasa SET NazwaKlasy=@NazwaKlasy,Virtual=@Virtual,User=@User,ComputerIP=@IP WHERE ID=@ID;";
+			return "UPDATE szkola_klasa SET NazwaKlasy=@NazwaKlasy,IsVirtual=@IsVirtual,User=@User,ComputerIP=@IP WHERE ID=@ID;";
 		}
 	}
 	public static class SubjectSQL
