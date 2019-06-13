@@ -40,7 +40,7 @@ namespace Belfer
                 //cbKlasa.DataSource = GetClassList().Result;
                 cbKlasa.DataSource = GetClassList().Result.ToList();
                 cbKlasa.Enabled = cbKlasa.Items.Count > 0;
-                cbKlasa.SelectedIndex = -1;
+                cbKlasa.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -84,6 +84,7 @@ namespace Belfer
                     {
                         NewRecordAdded?.Invoke(recordID);
                         cmdOK.Enabled = false;
+                        LoadSchoolClass();
                         cbKlasa_SelectedIndexChanged(cbKlasa, e);
                     }
                 }
