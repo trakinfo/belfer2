@@ -1,11 +1,10 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
 using System;
-using System.Threading.Tasks;
 
 namespace Belfer
 {
-	public partial class MainForm
+    public partial class MainForm
 	{
 		private void SetFormProperties(Form frm)
 		{

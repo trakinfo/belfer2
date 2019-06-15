@@ -67,7 +67,7 @@ namespace Belfer
             }
         }
 
-        private static async Task<int> LogUserEnterAttempt(string userName, byte status)
+        private static async Task<long> LogUserEnterAttempt(string userName, byte status)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace Belfer
             return sqlParamWithValue;
         }
 
-        private static async Task LogUserExit(int IdEvent)
+        private static async Task LogUserExit(long IdEvent)
         {
             try
             {

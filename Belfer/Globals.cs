@@ -10,7 +10,7 @@ using Belfer.DataBaseContext;
 
 namespace Belfer
 {
-    public delegate void NewRecord(int RecordID);
+    public delegate void NewRecord(long RecordID);
     public enum YesNo { Nie, Tak }
     public enum PageNumberLocation { Header = 0, Footer = 1 }
     public enum AnalysisOption { ByNumber, ByPercent, ByBoth }
@@ -60,7 +60,7 @@ namespace Belfer
     }
     public static class UserSession
     {
-        public static int ID { get; set; }
+        public static long ID { get; set; }
         public static DateTime StartTime { get; set; }
         public static AppUser User { get; set; }
 

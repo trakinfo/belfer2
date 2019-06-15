@@ -12,7 +12,7 @@ namespace Belfer
     public partial class dlgSchoolClass : Form
     {
         bool IsNewMode;
-        public delegate void NewRecord(int RecordID);
+        //public delegate void NewRecord(int RecordID);
         public event NewRecord NewRecordAdded;
 
         public dlgSchoolClass(bool NewMode)
@@ -101,7 +101,7 @@ namespace Belfer
             }
         }
 
-        async Task<int> AddSchoolClass()
+        async Task<long> AddSchoolClass()
         {
             try
             {

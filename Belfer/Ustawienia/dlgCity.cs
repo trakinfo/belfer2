@@ -72,7 +72,7 @@ namespace Belfer
             cmdOK.Enabled = ((TextBox)sender).Text.Length > 0;
         }
 
-        public int AddCity()
+        public long AddCity()
         {
             using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
             {

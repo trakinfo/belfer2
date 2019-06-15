@@ -79,7 +79,7 @@ namespace Belfer
             }
         }
 
-        async Task<int> AddSchool()
+        async Task<long> AddSchool()
         {
             try
             {

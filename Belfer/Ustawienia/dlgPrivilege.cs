@@ -14,7 +14,7 @@ namespace Belfer
 {
     public partial class dlgPrivilege : Form
     {
-        public delegate void NewRecord(int RecordID);
+        //public delegate void NewRecord(int RecordID);
         public event NewRecord NewRecordAdded;
         int TeacherId;
         public dlgPrivilege(int TeacherId)
@@ -200,7 +200,7 @@ namespace Belfer
         {
             try
             {
-                int recordId = 0;
+                long recordId = 0;
                 int recordCount = 0;
                 var sqlString = PrivilegeSQL.InsertPrivilege();
                 var sqlParamWithValue = new HashSet<IDictionary<string, object>>();
@@ -209,8 +209,9 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    recordCount = dbs.AddManyRecordsAsync(sqlString, sqlParamWithValue).Result;
-                    recordId = dbs.GetLastInsertedID().Result;
+                    var value = dbs.AddManyRecordsAsync(sqlString, sqlParamWithValue).Result;
+                    recordCount = value.RecordCount;
+                    recordId = value.InsertedRecordId;
                 }
 
                 NewRecordAdded?.Invoke(recordId);

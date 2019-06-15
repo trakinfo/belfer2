@@ -269,11 +269,11 @@ namespace Belfer
             }
         }
 
-        private void NewRecord(int RecordID)
+        private void NewRecord(long RecordID)
         {
             RefreshData();
             //SetListViewItem(RecordID);
-            SeekHelper.SetListItem<SchoolClass, int>(RecordID, "ID", olvKlasa);
+            SeekHelper.SetListItem<SchoolClass, long>(RecordID, "ID", olvKlasa);
         }
 
         private void RefreshData()

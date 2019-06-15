@@ -302,11 +302,11 @@ namespace Belfer
             }
         }
 
-        private void NewRecord(int RecordID)
+        private void NewRecord(long RecordID)
         {
             RefreshData();
             //SetListViewItem(RecordID);
-            SeekHelper.SetListItem<SubjectScheme, int>(RecordID, "ID", olvObsada);
+            SeekHelper.SetListItem<SubjectScheme, long>(RecordID, "ID", olvObsada);
         }
 
         private void RefreshData()

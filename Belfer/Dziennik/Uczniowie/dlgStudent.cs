@@ -121,7 +121,7 @@ namespace Belfer
         }
 
 
-        private async Task<int> AddStudentAllocation(int studentId)
+        private async Task<long> AddStudentAllocation(long studentId)
         {
             try
             {
@@ -137,7 +137,7 @@ namespace Belfer
             }
         }
 
-        IDictionary<string,object> CreateInsertParams(int studentId)
+        IDictionary<string,object> CreateInsertParams(long studentId)
         {
             var sqlParamWithValue = new Dictionary<string, object>();
             int? Nr = null;
@@ -156,7 +156,7 @@ namespace Belfer
             return sqlParamWithValue;
         }
 
-        async Task<int> AddStudent()
+        async Task<long> AddStudent()
         {
             try
             {

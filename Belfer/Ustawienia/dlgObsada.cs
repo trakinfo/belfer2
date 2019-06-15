@@ -125,7 +125,7 @@ namespace Belfer
                 {
                     IdList.Add(((SchoolClass)cbKlasa.SelectedItem).ID);
                 }
-                var RecordID = AddSubjectScheme(IdList).Result;
+                var RecordID = AddSubjectScheme(IdList).Result.Item2;
                 if (RecordID > 0)
                 {
                     NewRecordAdded?.Invoke(RecordID);
@@ -139,7 +139,7 @@ namespace Belfer
                 Close();
             }
         }
-        async Task<int> AddSubjectScheme(List<int> ClassId)
+        async Task<(int,long)> AddSubjectScheme(List<int> ClassId)
         {
             try
             {
@@ -157,7 +157,7 @@ namespace Belfer
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
+                return (0,-1);
             }
 
         }

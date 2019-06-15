@@ -74,7 +74,7 @@ namespace Belfer
             DialogResult = DialogResult.Cancel;
         }
 
-        async Task<int> AddSchoolType(string nazwa, string opis)
+        async Task<long> AddSchoolType(string nazwa, string opis)
         {
             try
             {

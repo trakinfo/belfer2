@@ -356,10 +356,10 @@ namespace Belfer
                 dlg.NewRecordAdded -= NewPrivilegeRecord;
             }
         }
-        private void NewPrivilegeRecord(int RecordID)
+        private void NewPrivilegeRecord(long RecordID)
         {
             GetData(olvPrivilege, GetPrivilegeListAsync((olvUser.SelectedObject as Teacher).ID).Result);
-            SeekHelper.SetListItem<Privilege, int>(RecordID, "ID", olvPrivilege);
+            SeekHelper.SetListItem<Privilege, long>(RecordID, "ID", olvPrivilege);
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)

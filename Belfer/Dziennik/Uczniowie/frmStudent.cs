@@ -413,13 +413,13 @@ namespace Belfer
                 dlg.cbKlasa.SelectedIndexChanged -= dlg.cbKlasa_SelectedIndexChanged;
             }
         }
-        private void NewRecord(int RecordID)
+        private void NewRecord(long RecordID)
         {
             RefreshData();
             SetListViewItem(RecordID);
         }
 
-        private void SetListViewItem(int recordID)
+        private void SetListViewItem(long recordID)
         {
             var Item = ((HashSet<StudentAllocation>)olvStudent.Objects).Where(x => x.Student.ID == recordID).FirstOrDefault();
             if (Item != null)
@@ -432,6 +432,7 @@ namespace Belfer
         {
             ClearDetails();
             ClearSignature();
+            FetchData();
             GetData(olvStudent);
         }
 

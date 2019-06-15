@@ -126,7 +126,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return dbs.AddManyRecordsAsync(SchoolClassSQL.InsertSchoolClass(), sqlParamWithValue).Result;
+                    return dbs.AddManyRecordsAsync(SchoolClassSQL.InsertSchoolClass(), sqlParamWithValue).Result.RecordCount;
                 }
             }
             catch (Exception ex)

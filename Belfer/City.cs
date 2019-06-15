@@ -47,7 +47,7 @@ namespace Belfer
             }
         }
 
-        static internal int? AddCity()
+        static internal long? AddCity()
         {
             using (var dlg = new dlgCity())
             {

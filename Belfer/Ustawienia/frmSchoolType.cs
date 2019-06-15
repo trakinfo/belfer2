@@ -174,10 +174,10 @@ namespace Belfer
             }
         }
 
-        private void RefreshData(int RecordID)
+        private void RefreshData(long RecordID)
         {
             GetData(olvSchoolType);
-            SeekHelper.SetListItem<SchoolType, int>(RecordID, "ID", olvSchoolType);
+            SeekHelper.SetListItem<SchoolType, long>(RecordID, "ID", olvSchoolType);
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)

@@ -161,7 +161,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    recordCount = dbs.AddManyRecordsAsync(sqlString, sqlParamWithValue).Result;
+                    recordCount = dbs.AddManyRecordsAsync(sqlString, sqlParamWithValue).Result.RecordCount;
                 }
                 if (recordCount > 0)
                 {

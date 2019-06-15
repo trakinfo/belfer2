@@ -74,7 +74,7 @@ namespace Belfer
             }
         }
 
-        async Task<int> AddUser()
+        async Task<long> AddUser()
         {
             try
             {

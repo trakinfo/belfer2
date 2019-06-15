@@ -34,7 +34,7 @@ namespace Belfer
         }
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            var Count = AddSubjectScheme().Result;
+            var Count = AddSubjectScheme().Result.Item1;
             if (Count > 0)
             {
                 var msg = $"Dodano rekordów: {Count}";
@@ -120,7 +120,7 @@ namespace Belfer
             txtSeek_TextChanged(sender, e);
             txtSeek.Select();
         }
-        async Task<int> AddSubjectScheme()
+        async Task<(int,long)> AddSubjectScheme()
         {
             try
             {
@@ -138,7 +138,7 @@ namespace Belfer
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
+                return (0,-1);
             }
         }
         private IDictionary<string, object> CreateSubjectParams(SubjectSchemeImport S)

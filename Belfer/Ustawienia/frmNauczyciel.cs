@@ -209,7 +209,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return dbs.AddManyRecordsAsync(TeacherSQL.InsertTeacher(), sqlParamWithValue).Result;
+                    return dbs.AddManyRecordsAsync(TeacherSQL.InsertTeacher(), sqlParamWithValue).Result.RecordCount;
                 }
             }
             catch (Exception ex)
