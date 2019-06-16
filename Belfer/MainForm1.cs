@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
 using System;
+using Belfer.DataBaseContext;
 
 namespace Belfer
 {
@@ -72,7 +73,6 @@ namespace Belfer
 				case System.Data.ConnectionState.Closed:
 					statConn.Image = Properties.Resources.ConnClosed;
 					statConn.ForeColor = System.Drawing.Color.Red;
-					//ReconecttoolStripMenuItem.Enabled = true;
 					statConn.Text = "Zamknięte";
 					statSSL.Image = null;
 					statSSL.Text = null;
@@ -80,7 +80,6 @@ namespace Belfer
 				case System.Data.ConnectionState.Open:
 					statConn.Image = Properties.Resources.ConnOpen;
 					statConn.ForeColor = System.Drawing.Color.Green;
-					//ReconecttoolStripMenuItem.Enabled = false;
 					statConn.Text = "Otwarte";
 					SetSslStatus();
 					break;

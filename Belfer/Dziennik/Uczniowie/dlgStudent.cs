@@ -148,7 +148,7 @@ namespace Belfer
             sqlParamWithValue.Add("@Promocja", false);
             sqlParamWithValue.Add("@StatusAktywacji", true);
             sqlParamWithValue.Add("@DataAktywacji", dtDataAktywacji.Value);
-            sqlParamWithValue.Add("@DataDeaktywacji", dtDataDeaktywacji.MaxDate);
+            sqlParamWithValue.Add("@DataDeaktywacji", dtDataDeaktywacji.Value);
             sqlParamWithValue.Add("@MasterRecord", true);
             sqlParamWithValue.Add("@Owner", UserSession.User.Login);
             sqlParamWithValue.Add("@User", UserSession.User.Login);

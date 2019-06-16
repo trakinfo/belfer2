@@ -6,7 +6,6 @@ using System.Linq;
 using Autofac;
 using DataBaseService;
 using System.Data;
-using Belfer.DataBaseContext;
 
 namespace Belfer
 {
