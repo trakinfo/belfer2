@@ -9,6 +9,7 @@ using Belfer.Ustawienia;
 using System.Threading.Tasks;
 using Autofac;
 using DataBaseService;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

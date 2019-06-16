@@ -1,4 +1,4 @@
-﻿using Belfer.Administrator;
+﻿using Belfer.Administrator.SQL;
 using Belfer.Ustawienia;
 using System;
 using System.Windows.Forms;
@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Belfer
 {
-	public partial class MainForm : Form
+    public partial class MainForm : Form
     {
         public MainForm()
         {

@@ -9,7 +9,7 @@ using Belfer.Ustawienia;
 using System.Threading.Tasks;
 using Autofac;
 using DataBaseService;
-using Belfer.DataBaseContext;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {
@@ -155,7 +155,7 @@ namespace Belfer
         {
             try
             {
-                var ST = SchoolToken.Where(x => x.UserRole > AppUser.UserRole.Nauczyciel).ToList();
+                var ST = SchoolToken.Where(x => x.UserRole > User.UserRole.Nauczyciel).ToList();
                 olv.BeginUpdate();
                 olv.SetObjects(GetSchoolList(ST));
                 olv.EndUpdate();

@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using Belfer.Administrator;
-using Belfer.DataBaseContext;
+using Belfer.Administrator.Model;
+using Belfer.Administrator.SQL;
 using DataBaseService;
 using System;
 using System.Collections.Generic;

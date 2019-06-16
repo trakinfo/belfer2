@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Belfer.Administrator.Model;
+using System;
 
 namespace Belfer
 {

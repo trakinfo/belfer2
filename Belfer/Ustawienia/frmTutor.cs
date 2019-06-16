@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
+using Belfer.Administrator.Model;
 using BrightIdeasSoftware;
 using DataBaseService;
 

@@ -11,6 +11,7 @@ using Autofac;
 using DataBaseService;
 using System.Threading.Tasks;
 using System.Data;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

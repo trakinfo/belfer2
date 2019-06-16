@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
 using System;
-using Belfer.DataBaseContext;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

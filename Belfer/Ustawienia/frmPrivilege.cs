@@ -9,6 +9,7 @@ using BrightIdeasSoftware;
 using Belfer.Ustawienia;
 using Autofac;
 using DataBaseService;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

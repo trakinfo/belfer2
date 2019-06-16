@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Belfer.Dziennik
+﻿namespace Belfer.Dziennik
 {
-	public static class StudentSQL
+    public static class StudentSQL
 	{
 		internal static string SelectStudent(string SchoolId, string SchoolYear)
 		{

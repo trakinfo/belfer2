@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using Belfer.Ustawienia;
-using Belfer.Administrator;
 using Autofac;
 using DataBaseService;
 using System.Data;
-using Belfer.DataBaseContext;
+using Belfer.Administrator.SQL;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

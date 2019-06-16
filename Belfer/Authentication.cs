@@ -5,11 +5,12 @@ using System.IO;
 using System.Windows.Forms;
 using System.Data;
 using Belfer.Ustawienia;
-using Belfer.Administrator;
 using Enigma;
 using System.Threading.Tasks;
 using Autofac;
 using DataBaseService;
+using Belfer.Administrator.SQL;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {
@@ -19,7 +20,7 @@ namespace Belfer
         {
             try
             {
-                var User = AppSession.Users.Where(x => x.Login == UserName).Where(x => x.Status == AppUser.UserStatus.Aktywny).FirstOrDefault();
+                var User = AppSession.Users.Where(x => x.Login == UserName).Where(x => x.Status == Administrator.Model.User.UserStatus.Aktywny).FirstOrDefault();
                 if (User == null) return false;
 
                 if (AuthenticateUser(User.Password, Password))
@@ -74,7 +75,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.AddRecordAsync(AdminSQL.LogIn(), CreateInsertParams(userName, status));
+                    return await dbs.AddRecordAsync(UserSQL.LogIn(), CreateInsertParams(userName, status));
                 }
             }
             catch (Exception)
@@ -101,7 +102,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    await dbs.UpdateRecordAsync(AdminSQL.LogOut(), new Tuple<string, object>("@IdRecord", IdEvent));
+                    await dbs.UpdateRecordAsync(UserSQL.LogOut(), new Tuple<string, object>("@IdRecord", IdEvent));
                 }
             }
             catch (Exception)
@@ -220,12 +221,12 @@ namespace Belfer
 
         public static async Task<IEnumerable<AppUser.UserSchoolToken>> LoadUserToken(AppUser User)
         {
-            if (User.Role == Belfer.User.UserRole.Administrator)
+            if (User.Role == AppUser.UserRole.Administrator)
             {
                 var AdminToken = new List<AppUser.UserSchoolToken>();
                 foreach (var S in AppSession.Schools)
                 {
-                    AdminToken.Add(new AppUser.UserSchoolToken { SchoolID = S.ID, UserRole = AppUser.UserRole.Administrator });
+                    AdminToken.Add(new AppUser.UserSchoolToken { SchoolID = S.ID, UserRole = Administrator.Model.User.UserRole.Administrator });
                 }
                 return AdminToken;
             }

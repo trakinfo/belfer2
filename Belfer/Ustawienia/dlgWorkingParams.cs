@@ -1,11 +1,11 @@
 ﻿using System.Windows.Forms;
-using System.Collections.Generic;
 using System;
-
 using System.Linq;
+using Belfer.Administrator.Model;
+
 namespace Belfer
 {
-	public partial class dlgWorkingParams : Form
+    public partial class dlgWorkingParams : Form
 	{
 		public static event EventHandler ConfigurationChanged;
 		public dlgWorkingParams(AppUser.UserSettings Settings)

@@ -6,11 +6,11 @@ using System.Linq;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using System.Drawing.Printing;
-using Belfer.Administrator;
 using System.Threading.Tasks;
 using Autofac;
 using DataBaseService;
-using Belfer.DataBaseContext;
+using Belfer.Administrator.SQL;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

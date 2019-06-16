@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Belfer.Administrator.Model;
 
 namespace Belfer.Ustawienia
 {
-	public static class SchoolSQL
+    public static class SchoolSQL
 	{
 		public static string SelectSchool()
 		{
 			return "SELECT s.ID, s.Nazwa, s.Alias, s.NIP, s.Ulica, s.Nr, m.ID as IdMiejscowosc, m.Kod, m.Nazwa as Miejscowosc, m.KodPocztowy, m.Poczta, s.Telefon, s.Fax, s.Email, s.IdTypSzkoly, ts.Typ, ts.Opis, s.Owner, s.User, s.ComputerIP, s.Version FROM szkola s LEFT JOIN miejscowosc m ON s.IdMiejscowosc=m.ID INNER JOIN typy_szkol ts ON s.IdTypSzkoly=ts.ID;";
 		}
-		public static string SelectSchool(string User, AppUser.UserStatus Status)
+		public static string SelectSchool(string User, User.UserStatus Status)
 		{
 			return "SELECT sn.ID,sn.IdSzkola,sn.Role FROM szkola_nauczyciel sn WHERE sn.Nauczyciel = '" + User + "' AND sn.Status='" + (byte)Status + "';";
 		}

@@ -124,7 +124,10 @@
     <Compile Include="AboutBelfer.Designer.cs">
       <DependentUpon>AboutBelfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\SQL.cs" />
+    <Compile Include="Administrator\Model\AppUser.cs" />
+    <Compile Include="Administrator\Model\User.cs" />
+    <Compile Include="Administrator\SQL\AdminSQL.cs" />
+    <Compile Include="Administrator\SQL\UserSQL.cs" />
     <Compile Include="DataBaseContext\ConnectionAssistant.cs" />
     <Compile Include="DataBaseContext\dlgConnectParams.cs">
       <SubType>Form</SubType>
@@ -134,9 +137,9 @@
     </Compile>
     <Compile Include="DataBaseContext\JSonHelper.cs" />
     <Compile Include="DataBaseContext\ConnectionParams.cs" />
-    <Compile Include="Dziennik\SQL.cs" />
-    <Compile Include="Dziennik\Uczniowie\Student.cs" />
-    <Compile Include="Dziennik\Uczniowie\StudentAllocation.cs" />
+    <Compile Include="Dziennik\SQL\StudentSQL.cs" />
+    <Compile Include="Dziennik\Model\Student.cs" />
+    <Compile Include="Dziennik\Model\StudentAllocation.cs" />
     <Compile Include="Nadzor\Klasyfikacja\Analysis.cs" />
     <Compile Include="Authentication.cs" />
     <Compile Include="City.cs" />

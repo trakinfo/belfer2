@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using System.IO;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

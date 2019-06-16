@@ -9,6 +9,7 @@ using System.Drawing;
 using Belfer.Nadzor;
 using Autofac;
 using System.Threading.Tasks;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {

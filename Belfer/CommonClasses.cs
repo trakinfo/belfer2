@@ -11,6 +11,8 @@ using System.Drawing;
 using System.Drawing.Printing;
 using Autofac;
 using DataBaseService;
+using Belfer.Administrator.SQL;
+using Belfer.Administrator.Model;
 
 namespace Belfer
 {
@@ -20,7 +22,7 @@ namespace Belfer
         /// Rok szkolny w formacie 'yyyy/yyyy+1'
         /// </summary>
         /// <param name="year">Liczba całkowita oznaczająca rok kalendarzowy będący pierwszym członem roku szkolnego</param>
-        /// <returns></returns>
+        /// <returns>yyyy/yyyy+1</returns>
         public static string SchoolYear(int year)
         {
             return $"{year}/{year + 1}";

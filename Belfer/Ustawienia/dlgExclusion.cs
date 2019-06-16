@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Belfer.Administrator.Model;
 using Belfer.DataBaseContext;
 using Belfer.Ustawienia;
 using BrightIdeasSoftware;

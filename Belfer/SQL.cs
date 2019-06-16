@@ -2,14 +2,7 @@
 
 namespace Belfer
 {
-    public static class AdminSQL
-    {
-        public static string SelectSsLCipher() => "SHOW STATUS LIKE 'Ssl_cipher';";
-        public static string SelectServerTime() => "SELECT Now();";
-        public static string LogIn() => "INSERT INTO event (Login, ComputerIP, Status, AppType, AppVer) VALUES(@Nick, @IP, @LoginStatus, @AppType, @AppVer);";
-        public static string LogOut() => "UPDATE event SET TimeOut=Now() WHERE ID=@IdRecord;";
-        public static string ChangePassword() => "UPDATE user SET Password=NewPwd WHERE Login=Nick;";
-    }
+
     public static class OpcjeSQL
     {
         public static string SelectDBVersion() => "SELECT Value FROM opcje WHERE Name='DBVersion';";
