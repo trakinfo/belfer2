@@ -10,6 +10,7 @@ using Belfer.Administrator.Model;
 namespace Belfer
 {
     public delegate void NewRecord(long RecordID);
+    public delegate void ConnectionStatus(ConnectionState cs);
     public enum YesNo { Nie, Tak }
     public enum PageNumberLocation { Header = 0, Footer = 1 }
     public enum AnalysisOption { ByNumber, ByPercent, ByBoth }
@@ -36,6 +37,7 @@ namespace Belfer
     }
     public static class AppSession
     {
+        //public static event ConnectionStatus ConnectionStateChanged;
         static System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
 
         public static DateTime CurrentDateAndTime { get { return StartTime.Add(stopWatch.Elapsed); } }

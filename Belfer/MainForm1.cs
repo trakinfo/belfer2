@@ -2,6 +2,8 @@
 using System.Linq;
 using System;
 using Belfer.Administrator.Model;
+using System.Data;
+using Belfer.DataBaseContext;
 
 namespace Belfer
 {
@@ -18,11 +20,12 @@ namespace Belfer
 		}
 		void SetApplicationInfo()
 		{
+            ConnectionAssistant.ConnectionStateChanged += SetConnectionStatus;
 			Icon = AppVars.AppIcon;
 			Text = Text + " - wersja " + AppVars.AppVersion.ToString();
-            SetConnectionStatus(null, new System.Data.StateChangeEventArgs(System.Data.ConnectionState.Closed, System.Data.ConnectionState.Closed));
-            statServer.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
-			statBaza.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
+            SetConnectionStatus(ConnectionState.Closed);
+   //         statServer.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
+			//statBaza.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
 			statStacja.Text = $"{AppSession.HostIP} ({AppSession.HostName})";
 		}
 		void SetUserSessionInfo()
@@ -66,80 +69,60 @@ namespace Belfer
 			lblSchoolName.Text = null;
 		}
 
-		void SetConnectionStatus(object sender, System.Data.StateChangeEventArgs e)
+		void SetConnectionStatus(ConnectionState s)
 		{
-			switch (e.CurrentState)
-			{
-				case System.Data.ConnectionState.Closed:
-					statConn.Image = Properties.Resources.ConnClosed;
-					statConn.ForeColor = System.Drawing.Color.Red;
-					statConn.Text = "Zamknięte";
-					statSSL.Image = null;
-					statSSL.Text = null;
-					break;
-				case System.Data.ConnectionState.Open:
-					statConn.Image = Properties.Resources.ConnOpen;
-					statConn.ForeColor = System.Drawing.Color.Green;
-					statConn.Text = "Otwarte";
-					SetSslStatus();
-					break;
-				case System.Data.ConnectionState.Connecting:
-					statConn.Image = Properties.Resources.ConnConnecting;
-					statConn.ForeColor = System.Drawing.Color.Blue;
-					statConn.Text = "Łączenie...";
-					break;
-				case System.Data.ConnectionState.Executing:
-					statConn.ForeColor = System.Drawing.Color.Green;
-					statConn.Text = "Wykonywanie polecenia";
-					break;
-				case System.Data.ConnectionState.Fetching:
-					statConn.ForeColor = System.Drawing.Color.Green;
-					statConn.Text = "Pobieranie danych";
-					break;
-				case System.Data.ConnectionState.Broken:
-					lblConn.Image = Properties.Resources.ConnClosed;
-					statConn.ForeColor = System.Drawing.Color.Red;
-					statConn.Text = "Zerwane";
-					break;
-				default:
-					break;
-			}
-		}
+            switch (s)
+            {
+                case ConnectionState.Closed:
+                    statConn.Image = Properties.Resources.ConnClosed;
+                    statConn.ForeColor = System.Drawing.Color.Red;
+                    statConn.Text = "Zamknięte";
+                    break;
+                case ConnectionState.Open:
+                    statConn.Image = Properties.Resources.ConnOpen;
+                    statConn.ForeColor = System.Drawing.Color.Green;
+                    statConn.Text = "Otwarte";
+                    break;
+                case ConnectionState.Connecting:
+                    statConn.Image = Properties.Resources.ConnConnecting;
+                    statConn.ForeColor = System.Drawing.Color.Orange;
+                    statConn.Text = "Łączenie...";
+                    break;
+                case ConnectionState.Executing:
+                    statConn.ForeColor = System.Drawing.Color.Green;
+                    statConn.Text = "Wykonywanie polecenia";
+                    break;
+                case ConnectionState.Fetching:
+                    statConn.ForeColor = System.Drawing.Color.Green;
+                    statConn.Text = "Pobieranie danych";
+                    break;
+                case ConnectionState.Broken:
+                    lblConn.Image = Properties.Resources.ConnClosed;
+                    statConn.ForeColor = System.Drawing.Color.Red;
+                    statConn.Text = "Zerwane";
+                    break;
+                default:
+                    break;
+            }
+            MainStatusLeft.Invalidate();
+            MainStatusLeft.Refresh();
+        }
 
 		private void SetSslStatus()
 		{
 			var SSL = AppSession.SslCipher;
-			if (string.IsNullOrEmpty(SSL))
-			{
-				statSSL.Image = Properties.Resources.NoSSL;
-				statSSL.Text = "Brak szyfrowania";
-			}
-			else
-			{
-				statSSL.Image = Properties.Resources.SSL;
-				statSSL.Text = SSL;
-			}
+			//if (string.IsNullOrEmpty(SSL))
+			//{
+			//	statSSL.Image = Properties.Resources.NoSSL;
+			//	statSSL.Text = "Brak szyfrowania";
+			//}
+			//else
+			//{
+			//	statSSL.Image = Properties.Resources.SSL;
+			//	statSSL.Text = SSL;
+			//}
 		}
-		//private void Reconnect()
-		//{
-		//	try
-		//	{
-		//		if (AppSession.Conn.State==System.Data.ConnectionState.Closed)
-		//		{
-		//			AppSession.Conn.Open();
-		//		}
-		//	}
-		//	catch (MySql.Data.MySqlClient.MySqlException ex)
-		//	{
-		//		MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-		//	}
-		//	catch (Exception)
-		//	{
 
-		//		throw;
-		//	}
-
-		//}
 		void Logout()
 		{
 			CloseForms();

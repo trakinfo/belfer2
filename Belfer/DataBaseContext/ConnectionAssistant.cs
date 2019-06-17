@@ -12,6 +12,7 @@ namespace Belfer.DataBaseContext
     {
         bool IsDirty;
         IConnectionParameters connParams;
+        public static ConnectionStatus ConnectionStateChanged;
 
         public ConnectionAssistant()
         {
@@ -21,7 +22,8 @@ namespace Belfer.DataBaseContext
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<MySqlContext>().As<IDataBaseService>().WithParameter(new TypedParameter(typeof(IConnectionParameters), connParams));
+            //builder.RegisterType<MySqlContext>().As<IDataBaseService>().WithParameter(new TypedParameter(typeof(IConnectionParameters), connParams));
+            builder.Register<IDataBaseService>(c => new MySqlContext(connParams, (s, e) => ConnectionStateChanged?.Invoke(e.CurrentState)));
             AppSession.TypeContainer = builder.Build();
         }
         private bool TestConnection()
@@ -41,32 +43,6 @@ namespace Belfer.DataBaseContext
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            //catch (MySqlException ex)
-            //{
-            //    switch (ex.Number)
-            //    {
-            //        case 0:
-            //            if (Properties.Settings.Default.FirstRun)
-            //            {
-            //                Properties.Settings.Default.FirstRun = false;
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Nie udało się nawiązać połączenia.\nSkontaktuj się z administratorem serwera.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            }
-            //            break;
-            //        case 1045:
-            //            MessageBox.Show("Błędna nazwa użytkownika i (lub) hasło.\nWpisz poprawną nazwę i spróbuj jeszcze raz.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            break;
-            //        case 1042:
-            //            MessageBox.Show("Nie udało się nawiązać kontaktu z serwerem.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            break;
-            //        default:
-            //            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            break;
-            //    }
-            //    return false;
-            //}
         }
 
         public bool TryConnect()

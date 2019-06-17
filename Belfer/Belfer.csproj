@@ -530,6 +530,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Belfer_48.ico" />
+    <None Include="Resources\Belfer.png" />
     <None Include="Resources\open_24.png" />
     <None Include="Resources\refresh_24.png" />
     <None Include="Resources\sorting_24.png" />

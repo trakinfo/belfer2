@@ -124,6 +124,9 @@
   <data name="Zagrozenie_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Zagrozenie_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="refresh_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="close_22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,20 +169,17 @@
   <data name="Wyniki_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wyniki_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logout_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logout_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ConnOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ConnOpen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Zachowanie_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zachowanie_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddUser_24T" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddUser_24T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="NoSSL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoSSL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="open_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\open_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,26 +190,32 @@
   <data name="ConnConnecting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ConnConnecting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="strikeout_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\strikeout_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="kalendarz_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kalendarz_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Zachowanie_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Zachowanie_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Uwagi_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Uwagi_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="users_delete_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users_delete_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sorting_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sorting_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="strikeout_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\strikeout_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConnOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConnOpen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Import_24T" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Import_24T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="users_delete_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\users_delete_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddUser_24T" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddUser_24T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="users_edit_24T" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users_edit_24T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,13 +223,10 @@
   <data name="Save_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Uwagi_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Uwagi_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logout_32T" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logout_32T.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="open_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Belfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Belfer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

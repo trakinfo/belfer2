@@ -145,7 +145,6 @@
             this.MainStatusLeft = new System.Windows.Forms.StatusStrip();
             this.lblConn = new System.Windows.Forms.ToolStripStatusLabel();
             this.statConn = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statSSL = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsQuickAccess = new System.Windows.Forms.ToolStrip();
             this.tsbTerminarz = new System.Windows.Forms.ToolStripButton();
             this.tsbTemat = new System.Windows.Forms.ToolStripButton();
@@ -166,18 +165,13 @@
             this.lblRokSzkolny = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.tlpStatus = new System.Windows.Forms.TableLayoutPanel();
-            this.MainStatusCenter = new System.Windows.Forms.StatusStrip();
+            this.MainStatusRight = new System.Windows.Forms.StatusStrip();
             this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.statUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statRola = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statStacja = new System.Windows.Forms.ToolStripStatusLabel();
-            this.MainStatusRight = new System.Windows.Forms.StatusStrip();
-            this.lblstatServer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statServer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblBaza = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statBaza = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlpQuickAccess = new System.Windows.Forms.TableLayoutPanel();
             this.MainMenu.SuspendLayout();
             this.MainStatusLeft.SuspendLayout();
@@ -185,7 +179,6 @@
             this.tsQuickAction.SuspendLayout();
             this.tlpParametersInfo.SuspendLayout();
             this.tlpStatus.SuspendLayout();
-            this.MainStatusCenter.SuspendLayout();
             this.MainStatusRight.SuspendLayout();
             this.tlpQuickAccess.SuspendLayout();
             this.SuspendLayout();
@@ -1025,11 +1018,10 @@
             this.MainStatusLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainStatusLeft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblConn,
-            this.statConn,
-            this.statSSL});
+            this.statConn});
             this.MainStatusLeft.Location = new System.Drawing.Point(3, 3);
             this.MainStatusLeft.Name = "MainStatusLeft";
-            this.MainStatusLeft.Size = new System.Drawing.Size(333, 24);
+            this.MainStatusLeft.Size = new System.Drawing.Size(329, 24);
             this.MainStatusLeft.TabIndex = 2;
             this.MainStatusLeft.Text = "statusStrip1";
             // 
@@ -1050,14 +1042,7 @@
             this.statConn.Name = "statConn";
             this.statConn.Size = new System.Drawing.Size(56, 19);
             this.statConn.Text = "statConn";
-            // 
-            // statSSL
-            // 
-            this.statSSL.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.statSSL.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-            this.statSSL.Name = "statSSL";
-            this.statSSL.Size = new System.Drawing.Size(44, 19);
-            this.statSSL.Text = "statSSL";
+            this.statConn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // tsQuickAccess
             // 
@@ -1293,12 +1278,11 @@
             this.tlpStatus.AutoSize = true;
             this.tlpStatus.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.tlpStatus.ColumnCount = 3;
-            this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpStatus.Controls.Add(this.MainStatusCenter, 1, 0);
-            this.tlpStatus.Controls.Add(this.MainStatusLeft, 0, 0);
+            this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tlpStatus.Controls.Add(this.MainStatusRight, 2, 0);
+            this.tlpStatus.Controls.Add(this.MainStatusLeft, 0, 0);
             this.tlpStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpStatus.Enabled = false;
             this.tlpStatus.Location = new System.Drawing.Point(0, 531);
@@ -1308,21 +1292,22 @@
             this.tlpStatus.Size = new System.Drawing.Size(1111, 30);
             this.tlpStatus.TabIndex = 7;
             // 
-            // MainStatusCenter
+            // MainStatusRight
             // 
-            this.MainStatusCenter.Dock = System.Windows.Forms.DockStyle.None;
-            this.MainStatusCenter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainStatusRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainStatusRight.Dock = System.Windows.Forms.DockStyle.None;
+            this.MainStatusRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblUser,
             this.statUser,
             this.toolStripStatusLabel1,
             this.statRola,
             this.toolStripStatusLabel2,
             this.statStacja});
-            this.MainStatusCenter.Location = new System.Drawing.Point(339, 3);
-            this.MainStatusCenter.Name = "MainStatusCenter";
-            this.MainStatusCenter.Size = new System.Drawing.Size(432, 24);
-            this.MainStatusCenter.TabIndex = 3;
-            this.MainStatusCenter.Text = "statusStrip1";
+            this.MainStatusRight.Location = new System.Drawing.Point(676, 3);
+            this.MainStatusRight.Name = "MainStatusRight";
+            this.MainStatusRight.Size = new System.Drawing.Size(432, 24);
+            this.MainStatusRight.TabIndex = 3;
+            this.MainStatusRight.Text = "statusStrip1";
             // 
             // lblUser
             // 
@@ -1375,55 +1360,6 @@
             this.statStacja.Size = new System.Drawing.Size(61, 19);
             this.statStacja.Text = "statStacja";
             // 
-            // MainStatusRight
-            // 
-            this.MainStatusRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainStatusRight.Dock = System.Windows.Forms.DockStyle.None;
-            this.MainStatusRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblstatServer,
-            this.statServer,
-            this.lblBaza,
-            this.statBaza});
-            this.MainStatusRight.Location = new System.Drawing.Point(806, 3);
-            this.MainStatusRight.Name = "MainStatusRight";
-            this.MainStatusRight.Size = new System.Drawing.Size(302, 24);
-            this.MainStatusRight.TabIndex = 4;
-            this.MainStatusRight.Text = "statusStrip1";
-            // 
-            // lblstatServer
-            // 
-            this.lblstatServer.Name = "lblstatServer";
-            this.lblstatServer.Size = new System.Drawing.Size(45, 19);
-            this.lblstatServer.Text = "Serwer:";
-            this.lblstatServer.ToolTipText = "tomek\\njanek\\nwacek";
-            // 
-            // statServer
-            // 
-            this.statServer.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statServer.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-            this.statServer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.statServer.ForeColor = System.Drawing.Color.SteelBlue;
-            this.statServer.Name = "statServer";
-            this.statServer.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.statServer.Size = new System.Drawing.Size(90, 19);
-            this.statServer.Text = "statServer";
-            // 
-            // lblBaza
-            // 
-            this.lblBaza.Name = "lblBaza";
-            this.lblBaza.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lblBaza.Size = new System.Drawing.Size(96, 19);
-            this.lblBaza.Text = "Baza danych:";
-            // 
-            // statBaza
-            // 
-            this.statBaza.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.statBaza.ForeColor = System.Drawing.Color.SteelBlue;
-            this.statBaza.Name = "statBaza";
-            this.statBaza.Size = new System.Drawing.Size(56, 19);
-            this.statBaza.Spring = true;
-            this.statBaza.Text = "statBaza";
-            // 
             // tlpQuickAccess
             // 
             this.tlpQuickAccess.AutoSize = true;
@@ -1469,8 +1405,6 @@
             this.tlpParametersInfo.PerformLayout();
             this.tlpStatus.ResumeLayout(false);
             this.tlpStatus.PerformLayout();
-            this.MainStatusCenter.ResumeLayout(false);
-            this.MainStatusCenter.PerformLayout();
             this.MainStatusRight.ResumeLayout(false);
             this.MainStatusRight.PerformLayout();
             this.tlpQuickAccess.ResumeLayout(false);
@@ -1513,15 +1447,10 @@
 		private System.Windows.Forms.ToolStripButton tsbWyniki;
 		private System.Windows.Forms.ToolStripButton tsbAbsencja;
 		private System.Windows.Forms.TableLayoutPanel tlpStatus;
-		private System.Windows.Forms.StatusStrip MainStatusCenter;
+		private System.Windows.Forms.StatusStrip MainStatusRight;
 		private System.Windows.Forms.TableLayoutPanel tlpQuickAccess;
 		private System.Windows.Forms.ToolStripMenuItem ChangePasswordtoolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem ChangeUserPasswordtoolStripMenuItem;
-		private System.Windows.Forms.StatusStrip MainStatusRight;
-		private System.Windows.Forms.ToolStripStatusLabel lblstatServer;
-		private System.Windows.Forms.ToolStripStatusLabel statServer;
-		private System.Windows.Forms.ToolStripStatusLabel lblBaza;
-		private System.Windows.Forms.ToolStripStatusLabel statBaza;
 		private System.Windows.Forms.ToolStripStatusLabel lblUser;
 		private System.Windows.Forms.ToolStripStatusLabel statUser;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -1530,7 +1459,6 @@
 		private System.Windows.Forms.ToolStripStatusLabel statStacja;
 		private System.Windows.Forms.ToolStripStatusLabel lblConn;
 		private System.Windows.Forms.ToolStripStatusLabel statConn;
-		private System.Windows.Forms.ToolStripStatusLabel statSSL;
 		private System.Windows.Forms.ToolStripMenuItem UczniowietoolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem DaneUczniowtoolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem PromocjatoolStripMenuItem;
