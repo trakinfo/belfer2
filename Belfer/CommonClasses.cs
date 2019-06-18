@@ -381,7 +381,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return dbs.FetchSingleValueAsync(AdminSQL.SelectSsLCipher()).Result;
+                    return dbs.FetchRecordAsync(AdminSQL.SelectSsLCipher(),(R)=> R.GetString(1)).Result;
                 }
             }
             catch (Exception)

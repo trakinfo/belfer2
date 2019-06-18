@@ -36,9 +36,9 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.lblServer = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDatabase = new System.Windows.Forms.Label();
+            this.lblSsl = new System.Windows.Forms.Label();
+            this.lblURL = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +57,9 @@
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 2, 5);
             this.tableLayoutPanel.Controls.Add(this.lblServer, 2, 0);
-            this.tableLayoutPanel.Controls.Add(this.label2, 2, 1);
-            this.tableLayoutPanel.Controls.Add(this.label3, 2, 2);
-            this.tableLayoutPanel.Controls.Add(this.label4, 2, 3);
+            this.tableLayoutPanel.Controls.Add(this.lblDatabase, 2, 1);
+            this.tableLayoutPanel.Controls.Add(this.lblSsl, 2, 2);
+            this.tableLayoutPanel.Controls.Add(this.lblURL, 2, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(9, 9);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -133,6 +133,7 @@
             // 
             // textBoxDescription
             // 
+            this.tableLayoutPanel.SetColumnSpan(this.textBoxDescription, 2);
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescription.Location = new System.Drawing.Point(266, 115);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
@@ -140,7 +141,7 @@
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(227, 135);
+            this.textBoxDescription.Size = new System.Drawing.Size(463, 135);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Opis";
@@ -159,40 +160,47 @@
             // lblServer
             // 
             this.lblServer.AutoSize = true;
-            this.lblServer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblServer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblServer.Location = new System.Drawing.Point(499, 0);
             this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(40, 28);
+            this.lblServer.Size = new System.Drawing.Size(230, 28);
             this.lblServer.TabIndex = 25;
-            this.lblServer.Text = "Serwer";
+            this.lblServer.Text = "Serwer: ";
             this.lblServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblDatabase
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(499, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "label2";
+            this.lblDatabase.AutoSize = true;
+            this.lblDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDatabase.Location = new System.Drawing.Point(499, 28);
+            this.lblDatabase.Name = "lblDatabase";
+            this.lblDatabase.Size = new System.Drawing.Size(230, 28);
+            this.lblDatabase.TabIndex = 26;
+            this.lblDatabase.Text = "Baza danych: ";
+            this.lblDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblSsl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(499, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "label3";
+            this.lblSsl.AutoSize = true;
+            this.lblSsl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSsl.Location = new System.Drawing.Point(499, 56);
+            this.lblSsl.Name = "lblSsl";
+            this.lblSsl.Size = new System.Drawing.Size(230, 28);
+            this.lblSsl.TabIndex = 27;
+            this.lblSsl.Text = "SSL: ";
+            this.lblSsl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblURL
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(499, 84);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "label4";
+            this.lblURL.AutoSize = true;
+            this.lblURL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblURL.Location = new System.Drawing.Point(499, 84);
+            this.lblURL.Name = "lblURL";
+            this.lblURL.Size = new System.Drawing.Size(230, 28);
+            this.lblURL.TabIndex = 28;
+            this.lblURL.TabStop = true;
+            this.lblURL.Text = "URL";
+            this.lblURL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AboutBelfer
             // 
@@ -228,8 +236,8 @@
 		private System.Windows.Forms.TextBox textBoxDescription;
 		private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label lblServer;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDatabase;
+        private System.Windows.Forms.Label lblSsl;
+        private System.Windows.Forms.LinkLabel lblURL;
     }
 }

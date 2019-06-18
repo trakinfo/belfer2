@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
 [assembly: AssemblyTitle("Belfer")]
-[assembly: AssemblyDescription("Dziennik elektroniczny")]
+[assembly: AssemblyDescription("Elektroniczny dziennik lekcyjny przeznaczony do gromadzenia danych z przebiegu procesu nauczania. Program ten jest główną aplikacją systemu, na który składa się także baza danych zarządzana przez serwer MySQL oraz strona internetowa pozwalająca na selektywny odczyt danych.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("TrakInfo")]
 [assembly: AssemblyProduct("Belfer")]

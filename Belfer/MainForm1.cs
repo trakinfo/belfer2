@@ -108,21 +108,6 @@ namespace Belfer
             MainStatusLeft.Refresh();
         }
 
-		private void SetSslStatus()
-		{
-			var SSL = AppSession.SslCipher;
-			//if (string.IsNullOrEmpty(SSL))
-			//{
-			//	statSSL.Image = Properties.Resources.NoSSL;
-			//	statSSL.Text = "Brak szyfrowania";
-			//}
-			//else
-			//{
-			//	statSSL.Image = Properties.Resources.SSL;
-			//	statSSL.Text = SSL;
-			//}
-		}
-
 		void Logout()
 		{
 			CloseForms();
@@ -182,16 +167,16 @@ namespace Belfer
 		{
 			switch (UserSession.User.Role)
 			{
-				case AppUser.UserRole.Czytelnik:
+				case User.UserRole.Czytelnik:
 					EnableMenu(enable);
 					break;
-				case AppUser.UserRole.Nauczyciel:
+				case User.UserRole.Nauczyciel:
 					EnableEditorMenu(enable);
 					break;
-				case AppUser.UserRole.Operator:
+				case User.UserRole.Operator:
 					EnableOperatorMenu(enable);
 					break;
-				case AppUser.UserRole.Administrator:
+				case User.UserRole.Administrator:
 					EnableAdminMenu(enable);
 					break;
 				default:

@@ -6,6 +6,7 @@ using System.Linq;
 using Autofac;
 using System.Data;
 using Belfer.Administrator.Model;
+using DataBaseService;
 
 namespace Belfer
 {
@@ -51,13 +52,24 @@ namespace Belfer
         public static List<UserSettings> UserSettings { get; set; }
         public static bool IsDirty { get; set; } = false;
         public static string SslCipher => OptionLoader.GetSslCipher();
-
+        public static string ServerInfo => GetServerInfo();
+        
         static AppSession()
         {
             stopWatch.Start();
+            //ServerInfo = GetServerInfo();
             //SslCipher = OptionLoader.GetSslCipher();
         }
 
+        private static string GetServerInfo()
+        {
+            using (var scope = TypeContainer.BeginLifetimeScope())
+            {
+                var dbs = scope.Resolve<IDataBaseService>();
+                var info = dbs.ServerInfo();
+                return $"{info.ServerName} ver. {info.ServerVersion}";
+            }
+        }
     }
     public static class UserSession
     {

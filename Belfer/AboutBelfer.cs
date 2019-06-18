@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Belfer
@@ -20,7 +15,11 @@ namespace Belfer
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
-            lblServer.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
+            lblServer.Text += AppSession.ServerInfo;
+            //lblServer.Text += Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
+            lblDatabase.Text += Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
+            lblSsl.Text += GetSslStatus();
+            lblURL.Text = AppVars.AppURL;
         }
 
         #region Metody dostępu do atrybutu zestawu
@@ -107,5 +106,12 @@ namespace Belfer
         {
 
         }
+        private string GetSslStatus()
+        {
+            var SSL = AppSession.SslCipher;
+            if (string.IsNullOrEmpty(SSL)) return "Brak szyfrowania";
+            return SSL;
+        }
+
     }
 }
