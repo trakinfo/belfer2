@@ -15,10 +15,10 @@ namespace Belfer
 			Height = 185;
 			LoadUserList();
 		}
-		public dlgPassword(User UserData, bool adminMode)
+		public dlgPassword(User UserData)
 		{
 			InitializeComponent();
-			AdminMode = adminMode;
+			AdminMode = false;
 			cbUserName.Items.Add(UserData);
 			cbUserName.SelectedItem = UserData;
 			cbUserName.Enabled = false;

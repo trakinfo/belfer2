@@ -450,15 +450,15 @@ namespace Belfer
             }
 
         }
-        public static bool ChangePassword(User UserData, bool adminMode)
+        public static bool ChangePassword(User user)
         {
             try
             {
-                using (var dlg = new dlgPassword(UserData, adminMode))
+                using (var dlg = new dlgPassword(user))
                 {
                     if (dlg.ShowDialog() == DialogResult.OK)
                     {
-                        UpdatePassword(UserData, dlg.txtNewPassword.Text.Trim());
+                        UpdatePassword(user, dlg.txtNewPassword.Text.Trim());
                         return true;
                     }
                     return false;
@@ -475,7 +475,7 @@ namespace Belfer
             {
                 var pwdHash = HashHelper.CreatePassword(pwd);
                 usr.Password = Convert.ToBase64String(pwdHash);
-                //usr.UpdatePassword();
+                usr.UpdatePassword();
                 MessageBox.Show("Hasło zostało zmienione!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)

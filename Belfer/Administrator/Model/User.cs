@@ -43,12 +43,12 @@ namespace Belfer.Administrator.Model
 
         public override string ToString() { return string.Concat(Login, " (", Name, ")"); }
 
-        void UpdatePassword()
+        public int UpdatePassword()
         {
             using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
             {
                 var dbs = scope.Resolve<IDataBaseService>();
-                dbs.UpdateRecordAsync(UserSQL.ChangePassword(), CreateUpdateParams());
+                return dbs.UpdateRecordAsync(UserSQL.ChangePassword(), CreateUpdateParams()).Result;
             }
         }
         IDictionary<string, object> CreateUpdateParams()

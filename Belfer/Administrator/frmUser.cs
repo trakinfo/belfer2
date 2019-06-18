@@ -368,7 +368,7 @@ namespace Belfer
         {
             var U = (olvUser.SelectedObject as User);
             if (U == null) return;
-            if (Authentication.ChangePassword(U, true))
+            if (Authentication.ChangePassword(U))
             {
                 var AU = AppSession.Users.Where(x => x.Login == U.Login).FirstOrDefault();
                 if (AU != null) AU.Password = U.Password;

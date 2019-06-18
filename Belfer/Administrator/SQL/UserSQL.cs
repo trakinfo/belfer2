@@ -31,7 +31,7 @@
         public static string CountUser(string Login) => "SELECT COUNT(Login) FROM user WHERE Login='" + Login + "';";
         public static string LogIn() => "INSERT INTO event (Login, ComputerIP, Status, AppType, AppVer) VALUES(@Nick, @IP, @LoginStatus, @AppType, @AppVer);";
         public static string LogOut() => "UPDATE event SET TimeOut=Now() WHERE ID=@IdRecord;";
-        public static string ChangePassword() => "UPDATE user SET Password=NewPwd WHERE Login=Nick;";
+        public static string ChangePassword() => "UPDATE user SET Password=@NewPwd,User=@UserName,ComputerIP=@HostIP WHERE Login=@Nick;";
 
     }
 }

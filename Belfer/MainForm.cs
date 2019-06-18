@@ -53,7 +53,7 @@ namespace Belfer
 
         private void ChangeUserPasswordtoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Authentication.ChangePassword(UserSession.User, false);
+            Authentication.ChangePassword(UserSession.User);
         }
 
         private void WylogujtoolStripMenuItem_Click(object sender, EventArgs e)
