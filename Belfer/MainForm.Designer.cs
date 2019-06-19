@@ -173,6 +173,7 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statStacja = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlpQuickAccess = new System.Windows.Forms.TableLayoutPanel();
+            this.ConnectionTesttoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.MainStatusLeft.SuspendLayout();
             this.tsQuickAccess.SuspendLayout();
@@ -204,6 +205,7 @@
             // 
             this.ProgramtoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ProgramInfotoolStripMenuItem,
+            this.ConnectionTesttoolStripMenuItem,
             this.toolStripSeparator3,
             this.WylogujtoolStripMenuItem,
             this.ZamknijtoolStripMenuItem});
@@ -214,26 +216,26 @@
             // ProgramInfotoolStripMenuItem
             // 
             this.ProgramInfotoolStripMenuItem.Name = "ProgramInfotoolStripMenuItem";
-            this.ProgramInfotoolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.ProgramInfotoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ProgramInfotoolStripMenuItem.Text = "Informacje o programie";
             this.ProgramInfotoolStripMenuItem.Click += new System.EventHandler(this.ProgramInfotoolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(196, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(198, 6);
             // 
             // WylogujtoolStripMenuItem
             // 
             this.WylogujtoolStripMenuItem.Name = "WylogujtoolStripMenuItem";
-            this.WylogujtoolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.WylogujtoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.WylogujtoolStripMenuItem.Text = "&Wyloguj";
             this.WylogujtoolStripMenuItem.Click += new System.EventHandler(this.WylogujtoolStripMenuItem_Click);
             // 
             // ZamknijtoolStripMenuItem
             // 
             this.ZamknijtoolStripMenuItem.Name = "ZamknijtoolStripMenuItem";
-            this.ZamknijtoolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.ZamknijtoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ZamknijtoolStripMenuItem.Text = "&Zamknij";
             this.ZamknijtoolStripMenuItem.Click += new System.EventHandler(this.ZamknijtoolStripMenuItem_Click);
             // 
@@ -1377,6 +1379,12 @@
             this.tlpQuickAccess.Size = new System.Drawing.Size(37, 482);
             this.tlpQuickAccess.TabIndex = 8;
             // 
+            // ConnectionTesttoolStripMenuItem
+            // 
+            this.ConnectionTesttoolStripMenuItem.Name = "ConnectionTesttoolStripMenuItem";
+            this.ConnectionTesttoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.ConnectionTesttoolStripMenuItem.Text = "Informacje o połączeniu";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1561,6 +1569,7 @@
 		public System.Windows.Forms.Label lblSchoolName;
 		private System.Windows.Forms.ToolStripMenuItem ObsadatoolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem RealizacjaPlanuNauczaniatoolStripMenuItem;
-	}
+        private System.Windows.Forms.ToolStripMenuItem ConnectionTesttoolStripMenuItem;
+    }
 }
 
