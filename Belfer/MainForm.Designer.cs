@@ -31,6 +31,7 @@
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.ProgramtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProgramInfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConnectionTesttoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.WylogujtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ZamknijtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,7 +174,6 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statStacja = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlpQuickAccess = new System.Windows.Forms.TableLayoutPanel();
-            this.ConnectionTesttoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.MainStatusLeft.SuspendLayout();
             this.tsQuickAccess.SuspendLayout();
@@ -219,6 +219,13 @@
             this.ProgramInfotoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.ProgramInfotoolStripMenuItem.Text = "Informacje o programie";
             this.ProgramInfotoolStripMenuItem.Click += new System.EventHandler(this.ProgramInfotoolStripMenuItem_Click);
+            // 
+            // ConnectionTesttoolStripMenuItem
+            // 
+            this.ConnectionTesttoolStripMenuItem.Name = "ConnectionTesttoolStripMenuItem";
+            this.ConnectionTesttoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.ConnectionTesttoolStripMenuItem.Text = "Informacje o połączeniu";
+            this.ConnectionTesttoolStripMenuItem.Click += new System.EventHandler(this.ConnectionTesttoolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -1037,6 +1044,7 @@
             // 
             // statConn
             // 
+            this.statConn.DoubleClickEnabled = true;
             this.statConn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.statConn.ForeColor = System.Drawing.Color.Crimson;
             this.statConn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -1045,6 +1053,7 @@
             this.statConn.Size = new System.Drawing.Size(56, 19);
             this.statConn.Text = "statConn";
             this.statConn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.statConn.DoubleClick += new System.EventHandler(this.StatConn_DoubleClick);
             // 
             // tsQuickAccess
             // 
@@ -1378,12 +1387,6 @@
             this.tlpQuickAccess.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpQuickAccess.Size = new System.Drawing.Size(37, 482);
             this.tlpQuickAccess.TabIndex = 8;
-            // 
-            // ConnectionTesttoolStripMenuItem
-            // 
-            this.ConnectionTesttoolStripMenuItem.Name = "ConnectionTesttoolStripMenuItem";
-            this.ConnectionTesttoolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.ConnectionTesttoolStripMenuItem.Text = "Informacje o połączeniu";
             // 
             // MainForm
             // 

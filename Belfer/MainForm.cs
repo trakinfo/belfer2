@@ -25,7 +25,7 @@ namespace Belfer
         {
             try
             {
-                ConnectionAssistant.ConnectionStateChanged -= SetConnectionStatus;
+                //ConnectionAssistant.ConnectionStateChanged -= SetConnectionStatus;
                 Authentication.Logout().Wait();
             }
             catch (Exception ex)
@@ -240,6 +240,17 @@ namespace Belfer
             TypySzkoltoolStripMenuItem.Enabled = false;
             frm.TheEnd += (s, ex) => TypySzkoltoolStripMenuItem.Enabled = true;
             frm.Show();
+        }
+
+        private void ConnectionTesttoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new dlgTestConnection();
+            dlg.ShowDialog();
+        }
+
+        private void StatConn_DoubleClick(object sender, EventArgs e)
+        {
+            SetConnectionStatus(AppSession.ConnStatus);
         }
     }
 }

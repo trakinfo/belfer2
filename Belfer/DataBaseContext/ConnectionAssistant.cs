@@ -12,18 +12,17 @@ namespace Belfer.DataBaseContext
     {
         bool IsDirty;
         IConnectionParameters connParams;
-        public static ConnectionStatus ConnectionStateChanged;
 
         public ConnectionAssistant()
         {
-            LoadConnectParams();
+            SetConnectParams();
         }
         void InitializeContainer()
         {
             var builder = new ContainerBuilder();
 
-            //builder.RegisterType<MySqlContext>().As<IDataBaseService>().WithParameter(new TypedParameter(typeof(IConnectionParameters), connParams));
-            builder.Register<IDataBaseService>(c => new MySqlContext(connParams, (s, e) => ConnectionStateChanged?.Invoke(e.CurrentState)));
+            builder.RegisterType<MySqlContext>().As<IDataBaseService>().WithParameter(new TypedParameter(typeof(IConnectionParameters), connParams));
+            //builder.Register<IDataBaseService>(c => new MySqlContext(connParams, (s, e) => ConnectionStateChanged?.Invoke(e.CurrentState)));
             AppSession.TypeContainer = builder.Build();
         }
         private bool TestConnection()
@@ -55,9 +54,9 @@ namespace Belfer.DataBaseContext
                 }
                 else
                 {
-                    if (SetConnectParams())
+                    if (LoadConnectParams())
                     {
-                        LoadConnectParams();
+                        SetConnectParams();
                         if (TryConnect()) return true;
                     }
                 }
@@ -68,7 +67,7 @@ namespace Belfer.DataBaseContext
                 throw;
             }
         }
-        private bool SetConnectParams()
+        private bool LoadConnectParams()
         {
             try
             {
@@ -97,7 +96,7 @@ namespace Belfer.DataBaseContext
             }
         }
 
-        private bool LoadConnectParams()
+        private bool SetConnectParams()
         {
             try
             {
