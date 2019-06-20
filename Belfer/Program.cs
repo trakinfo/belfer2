@@ -65,6 +65,7 @@ namespace Belfer
 
         private static void SetAppSession()
         {
+            AppSession.ConnStatus = ConnectionState.Dostępne;
             AppSession.StartTime = OptionLoader.GetServerDateTime();
             AppSession.HostIP = Network.HostIPv4();
             AppSession.HostName = Network.HostName();

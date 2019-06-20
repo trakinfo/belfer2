@@ -20,19 +20,15 @@ namespace Belfer
 		}
 		void SetApplicationInfo()
 		{
-            ConnectionAssistant.ConnectionStateChanged += SetConnectionStatus;
 			Icon = AppVars.AppIcon;
 			Text = Text + " - wersja " + AppVars.AppVersion.ToString();
-            SetConnectionStatus(ConnectionState.Closed);
-   //         statServer.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
-			//statBaza.Text = Enigma.CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
-			statStacja.Text = $"{AppSession.HostIP} ({AppSession.HostName})";
+            SetConnectionStatus(AppSession.ConnStatus);
+            statStacja.Text = $"{AppSession.HostIP} ({AppSession.HostName})";
 		}
 		void SetUserSessionInfo()
 		{
 			statUser.Text = UserSession.User.ToString();
 			statRola.Text = UserSession.User.Role.ToString();
-			//statStacja.Text = string.Concat(AppSession.HostIP, " (", AppSession.HostName, ")");
 			SetWorkingParams();
 		}
 		void ResetUserSessionInfo()
@@ -40,7 +36,6 @@ namespace Belfer
 			ResetWorkingParams();
 			statUser.Text = null;
 			statRola.Text = null;
-			//statStacja.Text = null;
 		}
 		void SetWorkingParams()
 		{
@@ -68,45 +63,62 @@ namespace Belfer
 			lblRokSzkolny.Text = null;
 			lblSchoolName.Text = null;
 		}
-
-		void SetConnectionStatus(ConnectionState s)
-		{
+        void SetConnectionStatus(ConnectionState s)
+        {
             switch (s)
             {
-                case ConnectionState.Closed:
-                    statConn.Image = Properties.Resources.ConnClosed;
-                    statConn.ForeColor = System.Drawing.Color.Red;
-                    statConn.Text = "Zamknięte";
-                    break;
-                case ConnectionState.Open:
+                case ConnectionState.Dostępne:
                     statConn.Image = Properties.Resources.ConnOpen;
                     statConn.ForeColor = System.Drawing.Color.Green;
-                    statConn.Text = "Otwarte";
+                    statConn.Text = s.ToString();
                     break;
-                case ConnectionState.Connecting:
-                    statConn.Image = Properties.Resources.ConnConnecting;
-                    statConn.ForeColor = System.Drawing.Color.Orange;
-                    statConn.Text = "Łączenie...";
-                    break;
-                case ConnectionState.Executing:
-                    statConn.ForeColor = System.Drawing.Color.Green;
-                    statConn.Text = "Wykonywanie polecenia";
-                    break;
-                case ConnectionState.Fetching:
-                    statConn.ForeColor = System.Drawing.Color.Green;
-                    statConn.Text = "Pobieranie danych";
-                    break;
-                case ConnectionState.Broken:
-                    lblConn.Image = Properties.Resources.ConnClosed;
+                case ConnectionState.Niedostępne:
+                    statConn.Image = Properties.Resources.ConnClosed;
                     statConn.ForeColor = System.Drawing.Color.Red;
-                    statConn.Text = "Zerwane";
+                    statConn.Text = s.ToString();
                     break;
                 default:
                     break;
             }
-            MainStatusLeft.Invalidate();
-            MainStatusLeft.Refresh();
         }
+		//void SetConnectionStatus(ConnectionState s)
+		//{
+  //          switch (s)
+  //          {
+  //              case ConnectionState.Closed:
+  //                  statConn.Image = Properties.Resources.ConnClosed;
+  //                  statConn.ForeColor = System.Drawing.Color.Red;
+  //                  statConn.Text = "Zamknięte";
+  //                  break;
+  //              case ConnectionState.Open:
+  //                  statConn.Image = Properties.Resources.ConnOpen;
+  //                  statConn.ForeColor = System.Drawing.Color.Green;
+  //                  statConn.Text = "Otwarte";
+  //                  break;
+  //              case ConnectionState.Connecting:
+  //                  statConn.Image = Properties.Resources.ConnConnecting;
+  //                  statConn.ForeColor = System.Drawing.Color.Orange;
+  //                  statConn.Text = "Łączenie...";
+  //                  break;
+  //              case ConnectionState.Executing:
+  //                  statConn.ForeColor = System.Drawing.Color.Green;
+  //                  statConn.Text = "Wykonywanie polecenia";
+  //                  break;
+  //              case ConnectionState.Fetching:
+  //                  statConn.ForeColor = System.Drawing.Color.Green;
+  //                  statConn.Text = "Pobieranie danych";
+  //                  break;
+  //              case ConnectionState.Broken:
+  //                  lblConn.Image = Properties.Resources.ConnClosed;
+  //                  statConn.ForeColor = System.Drawing.Color.Red;
+  //                  statConn.Text = "Zerwane";
+  //                  break;
+  //              default:
+  //                  break;
+  //          }
+  //          MainStatusLeft.Invalidate();
+  //          MainStatusLeft.Refresh();
+  //      }
 
 		void Logout()
 		{

@@ -16,6 +16,7 @@ namespace Belfer
     public enum PageNumberLocation { Header = 0, Footer = 1 }
     public enum AnalysisOption { ByNumber, ByPercent, ByBoth }
     public enum PrivilegeAspect { Dodatkowy, Główny }
+    public enum ConnectionState { Niedostępne, Dostępne }
 
 
     public static class AppVars
@@ -38,7 +39,8 @@ namespace Belfer
     }
     public static class AppSession
     {
-        //public static event ConnectionStatus ConnectionStateChanged;
+        public static event ConnectionStatus ConnectionStateChanged;
+
         static System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
 
         public static DateTime CurrentDateAndTime { get { return StartTime.Add(stopWatch.Elapsed); } }
@@ -53,7 +55,8 @@ namespace Belfer
         public static bool IsDirty { get; set; } = false;
         public static string SslCipher => OptionLoader.GetSslCipher();
         public static string ServerInfo => GetServerInfo();
-        
+        public static ConnectionState ConnStatus { get; set; }
+
         static AppSession()
         {
             stopWatch.Start();
