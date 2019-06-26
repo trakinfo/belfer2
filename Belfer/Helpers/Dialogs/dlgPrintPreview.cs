@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Printing;
-using Belfer.Properties;
+using Belfer.Helpers;
 
 namespace Belfer
 {

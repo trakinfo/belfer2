@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Belfer.Administrator.Model;
 using Belfer.Dziennik;
+using Belfer.Helpers;
 using Belfer.Ustawienia;
 using BrightIdeasSoftware;
 using DataBaseService;

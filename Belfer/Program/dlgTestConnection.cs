@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using DataBaseService;
+using Enigma;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +18,36 @@ namespace Belfer
         public dlgTestConnection()
         {
             InitializeComponent();
+            GetConnectionParams();
+            GetConnectionStatus();
+        }
+
+        private void GetConnectionStatus()
+        {
+            switch (AppSession.ConnStatus)
+            {
+                case ConnectionState.Dostępne:
+
+                case ConnectionState.Niedostępne:
+
+                default:
+                    break;
+            }
+            
+        }
+
+        private void GetConnectionParams()
+        {
+            txtServer.Text = CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
+            txtPortNumber.Text = Properties.Settings.Default.ServerPort.ToString();
+            txtDatabase.Text = CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
+            txtSsl.Text = AppSession.SslCipher;
+            txtServerVersion.Text = AppSession.ServerInfo;
+            //using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
+            //{
+            //    var dbs = scope.Resolve<IDataBaseService>();
+                
+            //}
         }
 
         private void CmdOK_Click(object sender, EventArgs e)

@@ -118,6 +118,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\CalcHelper.cs" />
+    <Compile Include="Helpers\DateRange.cs" />
+    <Compile Include="Helpers\Network.cs" />
+    <Compile Include="Helpers\OptionLoader.cs" />
+    <Compile Include="Helpers\PrintHelper.cs" />
+    <Compile Include="Helpers\SeekHelper.cs" />
+    <Compile Include="Helpers\SQL\OpcjeSQL.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Program\dlgTestConnection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,15 +148,14 @@
     <Compile Include="DataBaseContext\dlgConnectParams.designer.cs">
       <DependentUpon>dlgConnectParams.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseContext\JSonHelper.cs" />
+    <Compile Include="Helpers\JSonHelper.cs" />
     <Compile Include="DataBaseContext\ConnectionParams.cs" />
     <Compile Include="Dziennik\SQL\StudentSQL.cs" />
     <Compile Include="Dziennik\Model\Student.cs" />
     <Compile Include="Dziennik\Model\StudentAllocation.cs" />
     <Compile Include="Nadzor\Klasyfikacja\Analysis.cs" />
     <Compile Include="Authentication.cs" />
-    <Compile Include="City.cs" />
-    <Compile Include="CommonClasses.cs" />
+    <Compile Include="Helpers\City.cs" />
     <Compile Include="Ustawienia\dlgCity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,10 +180,10 @@
     <Compile Include="Ustawienia\dlgImportSubjectScheme.Designer.cs">
       <DependentUpon>dlgImportSubjectScheme.cs</DependentUpon>
     </Compile>
-    <Compile Include="dlgLogin.cs">
+    <Compile Include="Helpers\Dialogs\dlgLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dlgLogin.Designer.cs">
+    <Compile Include="Helpers\Dialogs\dlgLogin.Designer.cs">
       <DependentUpon>dlgLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrator\dlgManyUsers.cs">
@@ -197,10 +204,10 @@
     <Compile Include="Ustawienia\dlgPassword.Designer.cs">
       <DependentUpon>dlgPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="dlgPrintPreview.cs">
+    <Compile Include="Helpers\Dialogs\dlgPrintPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dlgPrintPreview.designer.cs">
+    <Compile Include="Helpers\Dialogs\dlgPrintPreview.designer.cs">
       <DependentUpon>dlgPrintPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="Ustawienia\dlgPrivilege.cs">
@@ -257,10 +264,10 @@
     <Compile Include="Administrator\dlgUser.Designer.cs">
       <DependentUpon>dlgUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="dlgWait.cs">
+    <Compile Include="Helpers\Dialogs\dlgWait.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dlgWait.designer.cs">
+    <Compile Include="Helpers\Dialogs\dlgWait.designer.cs">
       <DependentUpon>dlgWait.cs</DependentUpon>
     </Compile>
     <Compile Include="Ustawienia\dlgWorkingParams.cs">
@@ -374,7 +381,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQL.cs" />
     <Compile Include="Ustawienia\SQL.cs" />
     <EmbeddedResource Include="Program\dlgTestConnection.resx">
       <DependentUpon>dlgTestConnection.cs</DependentUpon>
@@ -397,7 +403,7 @@
     <EmbeddedResource Include="Ustawienia\dlgImportSubjectScheme.resx">
       <DependentUpon>dlgImportSubjectScheme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dlgLogin.resx">
+    <EmbeddedResource Include="Helpers\Dialogs\dlgLogin.resx">
       <DependentUpon>dlgLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\dlgManyUsers.resx">
@@ -409,7 +415,7 @@
     <EmbeddedResource Include="Ustawienia\dlgPassword.resx">
       <DependentUpon>dlgPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dlgPrintPreview.resx">
+    <EmbeddedResource Include="Helpers\Dialogs\dlgPrintPreview.resx">
       <DependentUpon>dlgPrintPreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ustawienia\dlgPrivilege.resx">
@@ -439,7 +445,7 @@
     <EmbeddedResource Include="Administrator\dlgUser.resx">
       <DependentUpon>dlgUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dlgWait.resx">
+    <EmbeddedResource Include="Helpers\Dialogs\dlgWait.resx">
       <DependentUpon>dlgWait.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ustawienia\dlgWorkingParams.resx">

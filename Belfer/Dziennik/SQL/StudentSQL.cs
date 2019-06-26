@@ -1,4 +1,6 @@
-﻿namespace Belfer.Dziennik
+﻿using Belfer.Helpers;
+
+namespace Belfer.Dziennik
 {
     public static class StudentSQL
 	{

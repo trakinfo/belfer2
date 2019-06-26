@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 
 
-namespace Belfer
+namespace Belfer.Helpers
 {
     public class City : Simc.CityBySimc
     {

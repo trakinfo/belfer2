@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace Belfer
+namespace Belfer.Helpers.SQL
 {
-
     public static class OpcjeSQL
     {
         public static string SelectDBVersion() => "SELECT Value FROM opcje WHERE Name='DBVersion';";
@@ -15,5 +14,4 @@ namespace Belfer
 
         public static string SelectMaxPasswordLength() => "SELECT Value FROM opcje WHERE Name='MaxPasswordLength';";
     }
-
 }

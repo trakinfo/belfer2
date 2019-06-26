@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
 using Belfer.Dziennik;
+using Belfer.Helpers;
 using Belfer.Ustawienia;
 using DataBaseService;
 

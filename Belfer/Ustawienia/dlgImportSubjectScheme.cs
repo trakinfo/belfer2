@@ -8,6 +8,7 @@ using Belfer.Ustawienia;
 using System.Threading.Tasks;
 using DataBaseService;
 using Autofac;
+using Belfer.Helpers;
 
 namespace Belfer
 {

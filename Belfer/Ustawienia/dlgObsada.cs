@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
 using Belfer.DataBaseContext;
+using Belfer.Helpers;
 using Belfer.Ustawienia;
 using DataBaseService;
 

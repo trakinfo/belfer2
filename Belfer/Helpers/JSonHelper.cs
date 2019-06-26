@@ -1,7 +1,8 @@
 ﻿using System.IO;
+using Belfer.DataBaseContext;
 using Newtonsoft.Json;
 
-namespace Belfer.DataBaseContext
+namespace Belfer.Helpers
 {
     public static class JSonHelper
     {
