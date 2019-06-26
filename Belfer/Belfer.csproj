@@ -134,7 +134,6 @@
     <Compile Include="Administrator\Model\User.cs" />
     <Compile Include="Administrator\SQL\AdminSQL.cs" />
     <Compile Include="Administrator\SQL\UserSQL.cs" />
-    <Compile Include="DataBaseContext\ConnectionAssistant.cs" />
     <Compile Include="DataBaseContext\dlgConnectParams.cs">
       <SubType>Form</SubType>
     </Compile>
