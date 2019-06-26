@@ -7,6 +7,8 @@ using Autofac;
 using System.Data;
 using Belfer.Administrator.Model;
 using DataBaseService;
+using Belfer.DataBaseContext;
+using Enigma;
 
 namespace Belfer
 {
@@ -39,7 +41,8 @@ namespace Belfer
     }
     public static class AppSession
     {
-        public static event ConnectionStatus ConnectionStateChanged;
+        static IConnectionParameters connParams;
+        //public static event ConnectionStatus ConnectionStateChanged;
 
         static System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
 
@@ -55,11 +58,14 @@ namespace Belfer
         public static bool IsDirty { get; set; } = false;
         public static string SslCipher => OptionLoader.GetSslCipher();
         public static string ServerInfo => GetServerInfo();
-        public static ConnectionState ConnStatus { get; set; }
+        public static ConnectionState ConnStatus => TestConnection();
+
 
         static AppSession()
         {
             stopWatch.Start();
+            SetConnectParams();
+            InitializeContainer();
             //ServerInfo = GetServerInfo();
             //SslCipher = OptionLoader.GetSslCipher();
         }
@@ -72,6 +78,65 @@ namespace Belfer
                 var info = dbs.ServerInfo();
                 return $"{info.ServerName} ver. {info.ServerVersion}";
             }
+        }
+        public static void InitializeContainer()
+        {
+            try
+            {
+                var builder = new ContainerBuilder();
+                builder.RegisterType<MySqlContext>().As<IDataBaseService>().WithParameter(new TypedParameter(typeof(IConnectionParameters), connParams));
+                //builder.Register<IDataBaseService>(c => new MySqlContext(connParams, (s, e) => ConnectionStateChanged?.Invoke(e.CurrentState)));
+                TypeContainer = builder.Build();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+        static ConnectionState TestConnection()
+        {
+            try
+            {
+
+                using (var scope = TypeContainer.BeginLifetimeScope())
+                {
+                    var dbs = scope.Resolve<IDataBaseService>();
+                    if (dbs.TestConnection()) return ConnectionState.Dostępne;
+                }
+                return ConnectionState.Niedostępne;
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //return false;
+                throw;
+            }
+        }
+        public static bool SetConnectParams()
+        {
+            try
+            {
+                connParams = new ConnectionParams();
+                connParams.ServerAddress = CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
+                connParams.ServerPort = Properties.Settings.Default.ServerPort;
+                connParams.DBName = CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
+                connParams.UserName = CryptoHelper.Decrypt(Properties.Settings.Default.SysUser);
+                connParams.Password = CryptoHelper.Decrypt(Properties.Settings.Default.SysPassword);
+                connParams.SSLMode = Properties.Settings.Default.SSL;
+                connParams.CharSet = Properties.Settings.Default.Charset;
+                connParams.KeepAlive = Properties.Settings.Default.KeepAlive;
+                return true;
+            }
+            catch (ArgumentNullException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
     public static class UserSession

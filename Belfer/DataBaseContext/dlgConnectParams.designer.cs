@@ -42,6 +42,8 @@
             this.rbByHand = new System.Windows.Forms.RadioButton();
             this.txtFileIn = new System.Windows.Forms.TextBox();
             this.gbConnectParams = new System.Windows.Forms.GroupBox();
+            this.nudPort = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.nudKeepAlive = new System.Windows.Forms.NumericUpDown();
             this.cmdSaveToFile = new System.Windows.Forms.Button();
             this.cbSslMode = new System.Windows.Forms.ComboBox();
@@ -51,6 +53,7 @@
             this.txtCharset = new System.Windows.Forms.TextBox();
             this.cmdOpen = new System.Windows.Forms.Button();
             this.gbConnectParams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKeepAlive)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,6 +189,8 @@
             // 
             // gbConnectParams
             // 
+            this.gbConnectParams.Controls.Add(this.nudPort);
+            this.gbConnectParams.Controls.Add(this.label8);
             this.gbConnectParams.Controls.Add(this.nudKeepAlive);
             this.gbConnectParams.Controls.Add(this.cmdSaveToFile);
             this.gbConnectParams.Controls.Add(this.cbSslMode);
@@ -209,16 +214,42 @@
             this.gbConnectParams.TabStop = false;
             this.gbConnectParams.Text = "Parametry połączenia";
             // 
+            // nudPort
+            // 
+            this.nudPort.Location = new System.Drawing.Point(366, 127);
+            this.nudPort.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudPort.Name = "nudPort";
+            this.nudPort.Size = new System.Drawing.Size(85, 20);
+            this.nudPort.TabIndex = 15;
+            this.nudPort.Value = new decimal(new int[] {
+            3306,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(334, 129);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(26, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Port";
+            // 
             // nudKeepAlive
             // 
-            this.nudKeepAlive.Location = new System.Drawing.Point(123, 180);
+            this.nudKeepAlive.Location = new System.Drawing.Point(366, 153);
             this.nudKeepAlive.Maximum = new decimal(new int[] {
             3600,
             0,
             0,
             0});
             this.nudKeepAlive.Name = "nudKeepAlive";
-            this.nudKeepAlive.Size = new System.Drawing.Size(120, 20);
+            this.nudKeepAlive.Size = new System.Drawing.Size(85, 20);
             this.nudKeepAlive.TabIndex = 13;
             // 
             // cmdSaveToFile
@@ -226,9 +257,9 @@
             this.cmdSaveToFile.Enabled = false;
             this.cmdSaveToFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmdSaveToFile.Image = global::Belfer.Properties.Resources.Save_24;
-            this.cmdSaveToFile.Location = new System.Drawing.Point(123, 205);
+            this.cmdSaveToFile.Location = new System.Drawing.Point(9, 205);
             this.cmdSaveToFile.Name = "cmdSaveToFile";
-            this.cmdSaveToFile.Size = new System.Drawing.Size(328, 32);
+            this.cmdSaveToFile.Size = new System.Drawing.Size(442, 32);
             this.cmdSaveToFile.TabIndex = 12;
             this.cmdSaveToFile.Text = "Zapisz parametry połączenia do pliku konfiguracyjnego";
             this.cmdSaveToFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -242,13 +273,13 @@
             this.cbSslMode.FormattingEnabled = true;
             this.cbSslMode.Location = new System.Drawing.Point(123, 126);
             this.cbSslMode.Name = "cbSslMode";
-            this.cbSslMode.Size = new System.Drawing.Size(328, 21);
+            this.cbSslMode.Size = new System.Drawing.Size(195, 21);
             this.cbSslMode.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 182);
+            this.label7.Location = new System.Drawing.Point(249, 156);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(111, 13);
             this.label7.TabIndex = 5;
@@ -276,7 +307,7 @@
             // 
             this.txtCharset.Location = new System.Drawing.Point(123, 153);
             this.txtCharset.Name = "txtCharset";
-            this.txtCharset.Size = new System.Drawing.Size(328, 20);
+            this.txtCharset.Size = new System.Drawing.Size(120, 20);
             this.txtCharset.TabIndex = 11;
             this.txtCharset.Tag = "4";
             this.txtCharset.TextChanged += new System.EventHandler(this.txtSerwerIP_TextChanged);
@@ -314,6 +345,7 @@
             this.Text = "Parametry połączenia";
             this.gbConnectParams.ResumeLayout(false);
             this.gbConnectParams.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKeepAlive)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -344,5 +376,7 @@
         internal System.Windows.Forms.TextBox txtCharset;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown nudKeepAlive;
+        private System.Windows.Forms.NumericUpDown nudPort;
+        private System.Windows.Forms.Label label8;
     }
 }
