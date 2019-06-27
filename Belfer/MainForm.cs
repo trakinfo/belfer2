@@ -245,6 +245,7 @@ namespace Belfer
         private void ConnectionTesttoolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dlg = new dlgTestConnection();
+            dlg.ConnectionStateChanged += SetConnectionStatus;
             dlg.ShowDialog();
         }
 

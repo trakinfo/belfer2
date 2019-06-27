@@ -1,58 +1,48 @@
-﻿using Autofac;
-using DataBaseService;
-using Enigma;
+﻿using Enigma;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Belfer
 {
     public partial class dlgTestConnection : Form
     {
+        public event ConnectionStatus ConnectionStateChanged;
         public dlgTestConnection()
         {
             InitializeComponent();
             GetConnectionParams();
-            GetConnectionStatus();
-        }
-
-        private void GetConnectionStatus()
-        {
-            switch (AppSession.ConnStatus)
-            {
-                case ConnectionState.Dostępne:
-
-                case ConnectionState.Niedostępne:
-
-                default:
-                    break;
-            }
-            
+            CmdTest_Click(this, new EventArgs());
         }
 
         private void GetConnectionParams()
         {
-            txtServer.Text = CryptoHelper.Decrypt(Properties.Settings.Default.ServerIP);
+            txtServer.Text = AppSession.ServerInfo;
             txtPortNumber.Text = Properties.Settings.Default.ServerPort.ToString();
             txtDatabase.Text = CryptoHelper.Decrypt(Properties.Settings.Default.DBName);
-            txtSsl.Text = AppSession.SslCipher;
-            txtServerVersion.Text = AppSession.ServerInfo;
-            //using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
-            //{
-            //    var dbs = scope.Resolve<IDataBaseService>();
-                
-            //}
+            var ssl = AppSession.SslCipher;
+            txtSsl.Text = ssl.Length == 0 ? "Bez szyfrowania" : ssl;
         }
 
         private void CmdOK_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CmdTest_Click(object sender, EventArgs e)
+        {
+            var status = AppSession.ConnStatus;
+            if (status == ConnectionState.Dostępne)
+            {
+                lblConnectionStatus.ForeColor = Color.Green;
+                lblConnectionStatus.Text = status.ToString();
+            }
+            else
+            {
+                lblConnectionStatus.ForeColor = Color.Red;
+                lblConnectionStatus.Text = status.ToString();
+            }
+            ConnectionStateChanged?.Invoke(status);
         }
     }
 }

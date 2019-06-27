@@ -80,45 +80,6 @@ namespace Belfer
                     break;
             }
         }
-		//void SetConnectionStatus(ConnectionState s)
-		//{
-  //          switch (s)
-  //          {
-  //              case ConnectionState.Closed:
-  //                  statConn.Image = Properties.Resources.ConnClosed;
-  //                  statConn.ForeColor = System.Drawing.Color.Red;
-  //                  statConn.Text = "Zamknięte";
-  //                  break;
-  //              case ConnectionState.Open:
-  //                  statConn.Image = Properties.Resources.ConnOpen;
-  //                  statConn.ForeColor = System.Drawing.Color.Green;
-  //                  statConn.Text = "Otwarte";
-  //                  break;
-  //              case ConnectionState.Connecting:
-  //                  statConn.Image = Properties.Resources.ConnConnecting;
-  //                  statConn.ForeColor = System.Drawing.Color.Orange;
-  //                  statConn.Text = "Łączenie...";
-  //                  break;
-  //              case ConnectionState.Executing:
-  //                  statConn.ForeColor = System.Drawing.Color.Green;
-  //                  statConn.Text = "Wykonywanie polecenia";
-  //                  break;
-  //              case ConnectionState.Fetching:
-  //                  statConn.ForeColor = System.Drawing.Color.Green;
-  //                  statConn.Text = "Pobieranie danych";
-  //                  break;
-  //              case ConnectionState.Broken:
-  //                  lblConn.Image = Properties.Resources.ConnClosed;
-  //                  statConn.ForeColor = System.Drawing.Color.Red;
-  //                  statConn.Text = "Zerwane";
-  //                  break;
-  //              default:
-  //                  break;
-  //          }
-  //          MainStatusLeft.Invalidate();
-  //          MainStatusLeft.Refresh();
-  //      }
-
 		void Logout()
 		{
 			CloseForms();
