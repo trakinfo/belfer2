@@ -181,7 +181,7 @@ namespace Belfer.Ustawienia
 		}
 		public static string SelectPrivilege(int TeacherId, string SchoolYear)
 		{
-			return "SELECT p.ID,o.Klasa,sk.NazwaKlasy,if(pt.Typ='Z',pt.Nazwa,pt.Alias) as Alias,pt.Typ as PrzedmiotTyp, p.Typ, p.Status, p.StartDate, p.EndDate, p.Owner, p.User,p.ComputerIP,p.Version FROM przywilej p INNER JOIN obsada o ON p.IdObsada=o.ID INNER JOIN szkola_przedmiot sp ON o.Przedmiot=sp.ID INNER JOIN szkola_klasa sk ON o.Klasa = sk.ID INNER JOIN przedmiot pt ON sp.IdPrzedmiot = pt.ID WHERE p.IdNauczyciel ='" + TeacherId + "' AND sk.RokSzkolny = '" + SchoolYear + "' ORDER BY sk.KodKlasy,sp.Priorytet; ";
+			return "SELECT p.ID,p.IdNauczyciel,o.Klasa,sk.NazwaKlasy,if(pt.Typ='Z',pt.Nazwa,pt.Alias) as Alias,pt.Typ as PrzedmiotTyp, p.Typ, p.Status, p.StartDate, p.EndDate, p.Owner, p.User,p.ComputerIP,p.Version FROM przywilej p INNER JOIN obsada o ON p.IdObsada=o.ID INNER JOIN szkola_przedmiot sp ON o.Przedmiot=sp.ID INNER JOIN szkola_klasa sk ON o.Klasa = sk.ID INNER JOIN przedmiot pt ON sp.IdPrzedmiot = pt.ID WHERE p.IdNauczyciel ='" + TeacherId + "' AND sk.RokSzkolny = '" + SchoolYear + "' ORDER BY sk.KodKlasy,sp.Priorytet; ";
 		}
 		public static string SelectExclusion(int TeacherId, string SchoolYear)
 		{

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Autofac;
 using Belfer.Administrator.Model;
 using Belfer.Helpers;
+using Belfer.Ustawienia.Model;
 using BrightIdeasSoftware;
 using DataBaseService;
 

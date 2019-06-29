@@ -11,6 +11,7 @@ using Autofac;
 using DataBaseService;
 using Belfer.Administrator.Model;
 using Belfer.Helpers;
+using Belfer.Ustawienia.Model;
 
 namespace Belfer
 {
@@ -175,31 +176,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.FetchRecordSetAsync(PrivilegeSQL.SelectPrivilege(TeacherId, UserSession.User.Settings.SchoolYear), (R) =>
-                    {
-                        DateTime.TryParse(R["StartDate"].ToString(), out DateTime startDate);
-                        DateTime.TryParse(R["EndDate"].ToString(), out DateTime endDate);
-                        return new Privilege
-                        {
-                            ID = Convert.ToInt32(R["ID"]),
-                            TeacherID = TeacherId,
-                            ClassID = Convert.ToInt32(R["Klasa"]),
-                            ClassName = R["NazwaKlasy"].ToString(),
-                            SubjectName = R["Alias"].ToString(),
-                            SubjectType = R["PrzedmiotTyp"].ToString(),
-                            PrivilegeType = (PrivilegeAspect)Convert.ToInt64(R["Typ"]),
-                            PrivilegeStatus = (User.UserStatus)Convert.ToInt64(R["Status"]),
-                            StartDate = startDate,
-                            EndDate = endDate,
-                            Creator = new Signature
-                            {
-                                Owner = R["Owner"].ToString(),
-                                User = R["User"].ToString(),
-                                IP = R["ComputerIP"].ToString(),
-                                Version = Convert.ToDateTime(R["Version"])
-                            }
-                        };
-                    });
+                    return await dbs.FetchRecordSetAsync(PrivilegeSQL.SelectPrivilege(TeacherId, UserSession.User.Settings.SchoolYear), Privilege.CreatePrivilege);
                 }
             }
             catch (Exception)
@@ -216,7 +193,7 @@ namespace Belfer
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.FetchRecordSetAsync(PrivilegeSQL.SelectExclusion(TeacherId, UserSession.User.Settings.SchoolYear), ExclusionModel);
+                    return await dbs.FetchRecordSetAsync(PrivilegeSQL.SelectExclusion(TeacherId, UserSession.User.Settings.SchoolYear), ExclusionDetails.CreateExclusionDetails);
                 }
             }
             catch (Exception)
@@ -225,28 +202,7 @@ namespace Belfer
             }
         }
 
-        private ExclusionDetails ExclusionModel(IDataReader R)
-        {
-            DateTime.TryParse(R["StartDate"].ToString(), out DateTime startDate);
-            DateTime.TryParse(R["EndDate"].ToString(), out DateTime endDate);
-            return new ExclusionDetails()
-            {
-                AllocationID = Convert.ToInt32(R["IdPrzydzial"]),
-                PrivilegeID = Convert.ToInt32(R["IdPrzywilej"]),
-                StudentName = R["Student"].ToString(),
-                ClassName = R["NazwaKlasy"].ToString(),
-                SubjectName = R["Alias"].ToString(),
-                StartDate = startDate,
-                EndDate = endDate,
-                Creator = new Signature
-                {
-                    Owner = R["Owner"].ToString(),
-                    User = R["User"].ToString(),
-                    IP = R["ComputerIP"].ToString(),
-                    Version = Convert.ToDateTime(R["Version"])
-                }
-            };
-        }
+        
 
         private void olvPrivilege_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -499,7 +455,7 @@ namespace Belfer
         }
         IDictionary<string, object> CreateUpdateParams(dlgExclusionEdition dlg, int AllocationId, int PrivilegeId)
         {
-            var sqlParamWithValue = new Dictionary<String, object>();
+            var sqlParamWithValue = new Dictionary<string, object>();
             sqlParamWithValue.Add("@IdPrzydzial", AllocationId);
             sqlParamWithValue.Add("@IdPrzywilej", PrivilegeId);
             sqlParamWithValue.Add("@DataAktywacji", dlg.dtStartDate.Value);
@@ -627,33 +583,6 @@ namespace Belfer
             LoadFilterCriteria(Target);
         }
     }
-    public class Privilege
-    {
-        public int ID { get; set; }
-        public int TeacherID { get; set; }
-        public int ClassID { get; set; }
-        public string ClassName { get; set; }
-        public string SubjectName { get; set; }
-        public string SubjectType { get; set; }
-        public PrivilegeAspect PrivilegeType { get; set; }
-        public User.UserStatus PrivilegeStatus { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public Signature Creator { get; set; }
-    }
-    public class Exclusion
-    {
-        public int AllocationID { get; set; }
-        public int PrivilegeID { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public Signature Creator { get; set; }
-    }
-    public class ExclusionDetails : Exclusion
-    {
-        public string StudentName { get; set; }
-        public string ClassName { get; set; }
-        public string SubjectName { get; set; }
-    }
+    
 
 }

@@ -12,6 +12,7 @@ using DataBaseService;
 using Belfer.Administrator.SQL;
 using Belfer.Administrator.Model;
 using Belfer.Helpers;
+using Belfer.Ustawienia.Model;
 
 namespace Belfer
 {
@@ -197,10 +198,10 @@ namespace Belfer
                 UserSession.ID = LogUserEnterAttempt(User.Login, 1).Result;
                 UserSession.StartTime = AppSession.CurrentDateAndTime;
                 UserSession.User = User;
-                User.SchoolTokenList = LoadUserToken(User).Result;
+                User.SchoolTokenList = LoadUserTokenAsync(User).Result;
                 User.Settings = LoadUserSettings(User.Login);
-                User.PrivilageSet = LoadUserPrivilages(User);
-                User.ExclusionSet = LoadUserExclusions(User);
+                User.PrivilageSet = LoadUserPrivilegesAsync(User).Result;
+                User.ExclusionSet = LoadUserExclusionsAsync(User).Result;
             }
             catch (Exception)
             {
@@ -208,21 +209,42 @@ namespace Belfer
             }
         }
 
-        private static IEnumerable<Exclusion> LoadUserExclusions(AppUser user)
+        private static async Task<IEnumerable<Exclusion>> LoadUserExclusionsAsync(AppUser user)
         {
-            //todo: 2019-05-01 zrobić listę wykluczeń
-            return null;
+            if (user.Role > User.UserRole.Operator) return null;
+            Task<IEnumerable<Exclusion>> e = default;
+            using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
+            {
+                var dbs = scope.Resolve<IDataBaseService>();
+                foreach (var s in user.SchoolTokenList)
+                {
+                    if (s.UserRole == User.UserRole.Operator) continue;
+                    e = dbs.FetchRecordSetAsync(PrivilegeSQL.SelectExclusion(s.UserID, UserSession.User.Settings.SchoolYear), Exclusion.CreateExclusion);
+                }
+            }
+            return await e;
         }
 
-        private static ISet<Privilege> LoadUserPrivilages(AppUser user)
+        private static async Task<IEnumerable<Privilege>> LoadUserPrivilegesAsync(AppUser user)
         {
-            //todo: 2019-05-01 Było pusto, trzeba zrobić listę przywilejów
-            return null;
+            if (user.Role > User.UserRole.Operator) return null;
+            Task<IEnumerable<Privilege>> p=default;
+            using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
+            {
+                var dbs = scope.Resolve<IDataBaseService>();
+                foreach (var s in user.SchoolTokenList)
+                {
+                    if (s.UserRole == User.UserRole.Operator) continue;
+                    p = dbs.FetchRecordSetAsync(PrivilegeSQL.SelectPrivilege(s.UserID, UserSession.User.Settings.SchoolYear), Privilege.CreatePrivilege);
+                }
+            }
+            return await p;
         }
 
-        public static async Task<IEnumerable<AppUser.UserSchoolToken>> LoadUserToken(AppUser User)
+       
+        public static async Task<IEnumerable<AppUser.UserSchoolToken>> LoadUserTokenAsync(AppUser User)
         {
-            if (User.Role == AppUser.UserRole.Administrator)
+            if (User.Role == Administrator.Model.User.UserRole.Administrator)
             {
                 var AdminToken = new List<AppUser.UserSchoolToken>();
                 foreach (var S in AppSession.Schools)
@@ -231,16 +253,16 @@ namespace Belfer
                 }
                 return AdminToken;
             }
-            return await GetUserSchoolToken(User);
+            return await GetUserSchoolTokenAsync(User);
         }
-        private static async Task<IEnumerable<AppUser.UserSchoolToken>> GetUserSchoolToken(AppUser User)
+        private static async Task<IEnumerable<AppUser.UserSchoolToken>> GetUserSchoolTokenAsync(AppUser User)
         {
             try
             {
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.FetchRecordSetAsync(SchoolSQL.SelectSchool(User.Login, AppUser.UserStatus.Aktywny), TokenModel);
+                    return await dbs.FetchRecordSetAsync(SchoolSQL.SelectSchool(User.Login, Administrator.Model.User.UserStatus.Aktywny), TokenModel);
                 }
                 //return Token;
             }

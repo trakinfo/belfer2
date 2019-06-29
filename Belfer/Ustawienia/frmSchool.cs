@@ -262,7 +262,7 @@ namespace Belfer
         private void RefreshData()
         {
             AppSession.Schools = Authentication.GetSchools(SchoolSQL.SelectSchool()).Result;
-            UserSession.User.SchoolTokenList = Authentication.LoadUserToken(UserSession.User).Result;
+            UserSession.User.SchoolTokenList = Authentication.LoadUserTokenAsync(UserSession.User).Result;
             cbSchoolType_SelectedIndexChanged(cbSchoolType, new EventArgs());
         }
         private void cmdEdit_Click(object sender, EventArgs e) => EditSchool();

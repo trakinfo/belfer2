@@ -2,6 +2,7 @@
 using Belfer.Administrator.Model;
 using Belfer.DataBaseContext;
 using Belfer.Ustawienia;
+using Belfer.Ustawienia.Model;
 using BrightIdeasSoftware;
 using DataBaseService;
 using System;

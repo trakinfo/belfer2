@@ -10,7 +10,7 @@ namespace Belfer.Helpers
         /// Checks if a user has an Operator privilage or Administrator privilege
         /// </summary>
         /// <returns></returns>
-        public static bool HasOperatorPrivilage() => UserSession.User.Role > User.UserRole.Nauczyciel;
+        public static bool HasOperatorPrivilage() => UserSession.User.Role > User.UserRole.Nauczyciel && UserSession.User.Role < User.UserRole.Administrator;
 
         /// <summary>
         /// Checks if a user has an Administrator privilege

@@ -368,6 +368,9 @@
     <Compile Include="Ustawienia\frmTutor.Designer.cs">
       <DependentUpon>frmTutor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ustawienia\Model\ExclusioDetails.cs" />
+    <Compile Include="Ustawienia\Model\Exclusion.cs" />
+    <Compile Include="Ustawienia\Model\Privilege.cs" />
     <Compile Include="Ustawienia\Simc.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -591,7 +594,9 @@
       <Name>Enigma</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Ustawienia\SQL\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

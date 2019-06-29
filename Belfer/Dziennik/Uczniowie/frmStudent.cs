@@ -50,7 +50,7 @@ namespace Belfer
                 FetchData();
                 GetData(olvStudent);
                 cmdAddNew.Enabled = HasWritePrivilage();
-                cmdImport.Enabled = SeekHelper.HasOperatorPrivilage();
+                cmdImport.Enabled = UserSession.User.Role > User.UserRole.Nauczyciel;
             }
             catch (Exception ex)
             {
@@ -513,7 +513,7 @@ namespace Belfer
                 return await dbs.UpdateRecordAsync(StudentSQL.UpdateStudent(), CreateStudentParamWithValue(idStudent, dlg));
             }
         }
-         IDictionary<string,object> CreateStudentParamWithValue(int idStudent, dlgStudent dlg)
+        IDictionary<string, object> CreateStudentParamWithValue(int idStudent, dlgStudent dlg)
         {
             var sqlParamWithValue = new Dictionary<string, object>();
 
@@ -544,23 +544,23 @@ namespace Belfer
             sqlParamWithValue.Add("@TelKom2", dlg.txtTelKom2.Text.Trim());
             sqlParamWithValue.Add("@Man", dlg.chkSex.Checked);
             sqlParamWithValue.Add("@User", UserSession.User.Login);
-            sqlParamWithValue.Add("@IP",AppSession.HostIP);
+            sqlParamWithValue.Add("@IP", AppSession.HostIP);
 
             return sqlParamWithValue;
         }
-        
+
         async Task<int> UpdateStudentAllocationAsync(dlgStudent dlg, int idAllocation)
         {
             using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
             {
                 var dbs = scope.Resolve<IDataBaseService>();
-                return await dbs.UpdateRecordAsync(StudentSQL.UpdateStudentAllocation(), CreateAllocationParamWithValue(dlg,idAllocation));
+                return await dbs.UpdateRecordAsync(StudentSQL.UpdateStudentAllocation(), CreateAllocationParamWithValue(dlg, idAllocation));
             }
         }
 
-        IDictionary<string,object> CreateAllocationParamWithValue(dlgStudent dlg, int idAllocation)
+        IDictionary<string, object> CreateAllocationParamWithValue(dlgStudent dlg, int idAllocation)
         {
-            var sqlParamWithValue = new Dictionary<string,object>();
+            var sqlParamWithValue = new Dictionary<string, object>();
 
             byte? Nr = null;
             if (dlg.nudNrwDzienniku.Value > 0) Nr = (byte)dlg.nudNrwDzienniku.Value;
@@ -608,12 +608,14 @@ namespace Belfer
 
         private bool HasWritePrivilage()
         {
-            if (SeekHelper.HasOperatorPrivilage()) return true;
+            if (UserSession.User.Role > User.UserRole.Nauczyciel) return true;
+            //if (SeekHelper.HasOperatorPrivilage()) return true;
             return TutorList.Any(x => x.Teacher.Login == UserSession.User.Login);
         }
         private bool HasWritePrivilage(int classID)
         {
-            if (SeekHelper.HasOperatorPrivilage()) return true;
+            //if (SeekHelper.HasOperatorPrivilage()) return true;
+            if (UserSession.User.Role > User.UserRole.Nauczyciel) return true;
             return TutorList.Where(k => k.SchoolClass.ID == classID).Any(x => x.Teacher.Login == UserSession.User.Login);
         }
 
@@ -723,7 +725,7 @@ namespace Belfer
         }
     }
 
-    
+
 
 }
 

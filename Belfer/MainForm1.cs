@@ -125,6 +125,10 @@ namespace Belfer
 		{
 			try
 			{
+                if (UserSession.User.Role == User.UserRole.Administrator) return;
+                {
+
+                }
 				var SchoolRole = UserSession.User.SchoolTokenList.Where(x => x.SchoolID == UserSession.User.Settings.SchoolID).FirstOrDefault().UserRole;
 				if (SchoolRole != UserSession.User.Role) UserSession.User.Role = SchoolRole;
 			}
