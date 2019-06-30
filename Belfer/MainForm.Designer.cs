@@ -174,6 +174,7 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statStacja = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlpQuickAccess = new System.Windows.Forms.TableLayoutPanel();
+            this.MojePrzywilejetoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.MainStatusLeft.SuspendLayout();
             this.tsQuickAccess.SuspendLayout();
@@ -548,6 +549,7 @@
             this.UstawieniatoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.KonfiguracjatoolStripMenuItem,
             this.ChangeUserPasswordtoolStripMenuItem,
+            this.MojePrzywilejetoolStripMenuItem,
             this.toolStripSeparator11,
             this.StrukturatoolStripMenuItem,
             this.PrzydziatoolStripSeparator,
@@ -560,21 +562,21 @@
             // KonfiguracjatoolStripMenuItem
             // 
             this.KonfiguracjatoolStripMenuItem.Name = "KonfiguracjatoolStripMenuItem";
-            this.KonfiguracjatoolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.KonfiguracjatoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.KonfiguracjatoolStripMenuItem.Text = "Konfiguracja parametrów pracy";
             this.KonfiguracjatoolStripMenuItem.Click += new System.EventHandler(this.KonfiguracjatoolStripMenuItem_Click);
             // 
             // ChangeUserPasswordtoolStripMenuItem
             // 
             this.ChangeUserPasswordtoolStripMenuItem.Name = "ChangeUserPasswordtoolStripMenuItem";
-            this.ChangeUserPasswordtoolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.ChangeUserPasswordtoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.ChangeUserPasswordtoolStripMenuItem.Text = "Zmiana hasła";
             this.ChangeUserPasswordtoolStripMenuItem.Click += new System.EventHandler(this.ChangeUserPasswordtoolStripMenuItem_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(237, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(242, 6);
             // 
             // StrukturatoolStripMenuItem
             // 
@@ -590,7 +592,7 @@
             this.SkalaOcentoolStripMenuItem});
             this.StrukturatoolStripMenuItem.Enabled = false;
             this.StrukturatoolStripMenuItem.Name = "StrukturatoolStripMenuItem";
-            this.StrukturatoolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.StrukturatoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.StrukturatoolStripMenuItem.Text = "Struktura organizacyjna";
             // 
             // SzkolatoolStripMenuItem
@@ -624,6 +626,7 @@
             this.PrzydzialPrzedmiotowtoolStripMenuItem.Name = "PrzydzialPrzedmiotowtoolStripMenuItem";
             this.PrzydzialPrzedmiotowtoolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.PrzydzialPrzedmiotowtoolStripMenuItem.Text = "Przedmioty nauczania";
+            this.PrzydzialPrzedmiotowtoolStripMenuItem.Click += new System.EventHandler(this.PrzydzialPrzedmiotowtoolStripMenuItem_Click);
             // 
             // PrzydzialNauczycielitoolStripMenuItem
             // 
@@ -683,7 +686,7 @@
             // PrzydziatoolStripSeparator
             // 
             this.PrzydziatoolStripSeparator.Name = "PrzydziatoolStripSeparator";
-            this.PrzydziatoolStripSeparator.Size = new System.Drawing.Size(237, 6);
+            this.PrzydziatoolStripSeparator.Size = new System.Drawing.Size(242, 6);
             // 
             // ZasobytoolStripMenuItem
             // 
@@ -697,7 +700,7 @@
             this.SkalaOcenWzorzectoolStripMenuItem});
             this.ZasobytoolStripMenuItem.Enabled = false;
             this.ZasobytoolStripMenuItem.Name = "ZasobytoolStripMenuItem";
-            this.ZasobytoolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.ZasobytoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.ZasobytoolStripMenuItem.Text = "Zasoby wydzielone";
             // 
             // SimctoolStripMenuItem
@@ -1388,6 +1391,12 @@
             this.tlpQuickAccess.Size = new System.Drawing.Size(37, 482);
             this.tlpQuickAccess.TabIndex = 8;
             // 
+            // MojePrzywilejetoolStripMenuItem
+            // 
+            this.MojePrzywilejetoolStripMenuItem.Name = "MojePrzywilejetoolStripMenuItem";
+            this.MojePrzywilejetoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.MojePrzywilejetoolStripMenuItem.Text = "Moje uprawnienia i ograniczenia";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1573,6 +1582,7 @@
 		private System.Windows.Forms.ToolStripMenuItem ObsadatoolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem RealizacjaPlanuNauczaniatoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConnectionTesttoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MojePrzywilejetoolStripMenuItem;
     }
 }
 

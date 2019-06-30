@@ -294,6 +294,12 @@
     <Compile Include="Nadzor\Kontrola\frmKontrolaOcen.designer.cs">
       <DependentUpon>frmKontrolaOcen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ustawienia\frmSchoolSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmSchoolSubject.Designer.cs">
+      <DependentUpon>frmSchoolSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ustawienia\frmSchoolType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -462,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nadzor\Kontrola\frmKontrolaOcen.resx">
       <DependentUpon>frmKontrolaOcen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmSchoolSubject.resx">
+      <DependentUpon>frmSchoolSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ustawienia\frmSchoolType.resx">
       <DependentUpon>frmSchoolType.cs</DependentUpon>

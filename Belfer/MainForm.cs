@@ -253,5 +253,14 @@ namespace Belfer
         {
             SetConnectionStatus(AppSession.ConnStatus);
         }
+
+        private void PrzydzialPrzedmiotowtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new frmSchoolSubject();
+            SetFormProperties(frm);
+            TypySzkoltoolStripMenuItem.Enabled = false;
+            frm.TheEnd += (s, ex) => TypySzkoltoolStripMenuItem.Enabled = true;
+            frm.Show();
+        }
     }
 }
