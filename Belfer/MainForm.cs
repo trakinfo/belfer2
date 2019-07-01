@@ -1,6 +1,7 @@
 ﻿using Belfer.Administrator.SQL;
 using Belfer.DataBaseContext;
 using Belfer.Ustawienia;
+using Belfer.Ustawienia.SQL;
 using System;
 using System.Windows.Forms;
 

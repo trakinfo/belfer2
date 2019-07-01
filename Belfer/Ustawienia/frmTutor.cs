@@ -8,6 +8,7 @@ using Autofac;
 using Belfer.Administrator.Model;
 using Belfer.Helpers;
 using Belfer.Ustawienia.Model;
+using Belfer.Ustawienia.SQL;
 using BrightIdeasSoftware;
 using DataBaseService;
 

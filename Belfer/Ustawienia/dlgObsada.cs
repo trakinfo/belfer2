@@ -8,6 +8,7 @@ using Autofac;
 using Belfer.DataBaseContext;
 using Belfer.Helpers;
 using Belfer.Ustawienia;
+using Belfer.Ustawienia.SQL;
 using DataBaseService;
 
 namespace Belfer

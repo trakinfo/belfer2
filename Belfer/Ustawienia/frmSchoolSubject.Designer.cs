@@ -32,10 +32,9 @@
             this.cmdEdit = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
             this.cmdClose = new System.Windows.Forms.Button();
-            this.olvTeacher = new BrightIdeasSoftware.ObjectListView();
+            this.olvSubject = new BrightIdeasSoftware.ObjectListView();
             this.pnlRecord = new System.Windows.Forms.Panel();
             this.txtSeek = new System.Windows.Forms.TextBox();
-            this.cbSeek = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.Label11 = new System.Windows.Forms.Label();
             this.lblRecord = new System.Windows.Forms.Label();
@@ -46,7 +45,11 @@
             this.lblIP = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.Label32 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.olvTeacher)).BeginInit();
+            this.cmdStart = new System.Windows.Forms.Button();
+            this.cmdUp = new System.Windows.Forms.Button();
+            this.cmdDown = new System.Windows.Forms.Button();
+            this.cmdEnd = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.olvSubject)).BeginInit();
             this.pnlRecord.SuspendLayout();
             this.pnlSignature.SuspendLayout();
             this.SuspendLayout();
@@ -55,9 +58,9 @@
             // 
             this.cmdAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAddNew.Image = global::Belfer.Properties.Resources.AddTeacher_24T;
-            this.cmdAddNew.Location = new System.Drawing.Point(686, 12);
+            this.cmdAddNew.Location = new System.Drawing.Point(466, 12);
             this.cmdAddNew.Name = "cmdAddNew";
-            this.cmdAddNew.Size = new System.Drawing.Size(86, 36);
+            this.cmdAddNew.Size = new System.Drawing.Size(98, 36);
             this.cmdAddNew.TabIndex = 215;
             this.cmdAddNew.Text = "Dodaj";
             this.cmdAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -70,9 +73,9 @@
             this.cmdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdEdit.Enabled = false;
             this.cmdEdit.Image = global::Belfer.Properties.Resources.EditTeacher_24T;
-            this.cmdEdit.Location = new System.Drawing.Point(686, 54);
+            this.cmdEdit.Location = new System.Drawing.Point(466, 54);
             this.cmdEdit.Name = "cmdEdit";
-            this.cmdEdit.Size = new System.Drawing.Size(86, 36);
+            this.cmdEdit.Size = new System.Drawing.Size(98, 36);
             this.cmdEdit.TabIndex = 218;
             this.cmdEdit.Text = "Edytuj";
             this.cmdEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -85,9 +88,9 @@
             this.cmdDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdDelete.Enabled = false;
             this.cmdDelete.Image = global::Belfer.Properties.Resources.DelTeacher_24T;
-            this.cmdDelete.Location = new System.Drawing.Point(686, 96);
+            this.cmdDelete.Location = new System.Drawing.Point(466, 96);
             this.cmdDelete.Name = "cmdDelete";
-            this.cmdDelete.Size = new System.Drawing.Size(86, 36);
+            this.cmdDelete.Size = new System.Drawing.Size(98, 36);
             this.cmdDelete.TabIndex = 217;
             this.cmdDelete.Text = "&Usuń";
             this.cmdDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -99,9 +102,9 @@
             // 
             this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdClose.Image = global::Belfer.Properties.Resources.close_22;
-            this.cmdClose.Location = new System.Drawing.Point(686, 406);
+            this.cmdClose.Location = new System.Drawing.Point(466, 406);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(86, 35);
+            this.cmdClose.Size = new System.Drawing.Size(98, 35);
             this.cmdClose.TabIndex = 216;
             this.cmdClose.Text = "&Zamknij";
             this.cmdClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -109,67 +112,54 @@
             this.cmdClose.UseVisualStyleBackColor = true;
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
-            // olvTeacher
+            // olvSubject
             // 
-            this.olvTeacher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.olvSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.olvTeacher.CellEditUseWholeCell = false;
-            this.olvTeacher.Cursor = System.Windows.Forms.Cursors.Default;
-            this.olvTeacher.Location = new System.Drawing.Point(12, 12);
-            this.olvTeacher.Name = "olvTeacher";
-            this.olvTeacher.Size = new System.Drawing.Size(668, 429);
-            this.olvTeacher.TabIndex = 219;
-            this.olvTeacher.UseCompatibleStateImageBehavior = false;
-            this.olvTeacher.View = System.Windows.Forms.View.Details;
-            this.olvTeacher.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.olvTeacher_ItemChecked);
-            this.olvTeacher.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.olvSzkola_ItemSelectionChanged);
-            this.olvTeacher.DoubleClick += new System.EventHandler(this.olvTeacher_DoubleClick);
+            this.olvSubject.CellEditUseWholeCell = false;
+            this.olvSubject.Cursor = System.Windows.Forms.Cursors.Default;
+            this.olvSubject.Location = new System.Drawing.Point(12, 12);
+            this.olvSubject.Name = "olvSubject";
+            this.olvSubject.Size = new System.Drawing.Size(448, 429);
+            this.olvSubject.TabIndex = 219;
+            this.olvSubject.UseCompatibleStateImageBehavior = false;
+            this.olvSubject.View = System.Windows.Forms.View.Details;
+            this.olvSubject.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.olvTeacher_ItemChecked);
+            this.olvSubject.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.olvSzkola_ItemSelectionChanged);
+            this.olvSubject.DoubleClick += new System.EventHandler(this.olvTeacher_DoubleClick);
             // 
             // pnlRecord
             // 
             this.pnlRecord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlRecord.Controls.Add(this.txtSeek);
-            this.pnlRecord.Controls.Add(this.cbSeek);
             this.pnlRecord.Controls.Add(this.Label1);
             this.pnlRecord.Controls.Add(this.Label11);
             this.pnlRecord.Controls.Add(this.lblRecord);
             this.pnlRecord.Location = new System.Drawing.Point(12, 444);
             this.pnlRecord.Name = "pnlRecord";
-            this.pnlRecord.Size = new System.Drawing.Size(760, 25);
+            this.pnlRecord.Size = new System.Drawing.Size(552, 25);
             this.pnlRecord.TabIndex = 220;
             // 
             // txtSeek
             // 
             this.txtSeek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSeek.Location = new System.Drawing.Point(435, 3);
+            this.txtSeek.Location = new System.Drawing.Point(310, 3);
             this.txtSeek.Name = "txtSeek";
-            this.txtSeek.Size = new System.Drawing.Size(233, 20);
+            this.txtSeek.Size = new System.Drawing.Size(150, 20);
             this.txtSeek.TabIndex = 152;
             this.txtSeek.TextChanged += new System.EventHandler(this.txtSeek_TextChanged);
-            // 
-            // cbSeek
-            // 
-            this.cbSeek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSeek.DropDownWidth = 200;
-            this.cbSeek.FormattingEnabled = true;
-            this.cbSeek.Location = new System.Drawing.Point(307, 1);
-            this.cbSeek.Name = "cbSeek";
-            this.cbSeek.Size = new System.Drawing.Size(122, 21);
-            this.cbSeek.TabIndex = 151;
-            this.cbSeek.SelectedIndexChanged += new System.EventHandler(this.cbSeek_SelectedIndexChanged);
             // 
             // Label1
             // 
             this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(253, 6);
+            this.Label1.Location = new System.Drawing.Point(273, 6);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(48, 13);
+            this.Label1.Size = new System.Drawing.Size(31, 13);
             this.Label1.TabIndex = 150;
-            this.Label1.Text = "Filtruj wg";
+            this.Label1.Text = "Filtruj";
             // 
             // Label11
             // 
@@ -206,7 +196,7 @@
             this.pnlSignature.Controls.Add(this.Label32);
             this.pnlSignature.Location = new System.Drawing.Point(12, 477);
             this.pnlSignature.Name = "pnlSignature";
-            this.pnlSignature.Size = new System.Drawing.Size(760, 34);
+            this.pnlSignature.Size = new System.Drawing.Size(552, 34);
             this.pnlSignature.TabIndex = 221;
             // 
             // Label30
@@ -214,7 +204,7 @@
             this.Label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Label30.AutoSize = true;
             this.Label30.Enabled = false;
-            this.Label30.Location = new System.Drawing.Point(541, 13);
+            this.Label30.Location = new System.Drawing.Point(333, 13);
             this.Label30.Name = "Label30";
             this.Label30.Size = new System.Drawing.Size(85, 13);
             this.Label30.TabIndex = 54;
@@ -225,7 +215,7 @@
             this.Label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Label31.AutoSize = true;
             this.Label31.Enabled = false;
-            this.Label31.Location = new System.Drawing.Point(398, 13);
+            this.Label31.Location = new System.Drawing.Point(190, 13);
             this.Label31.Name = "Label31";
             this.Label31.Size = new System.Drawing.Size(31, 13);
             this.Label31.TabIndex = 53;
@@ -236,7 +226,7 @@
             this.lblData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblData.Enabled = false;
-            this.lblData.Location = new System.Drawing.Point(632, 8);
+            this.lblData.Location = new System.Drawing.Point(424, 8);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(120, 23);
             this.lblData.TabIndex = 52;
@@ -247,7 +237,7 @@
             this.lblIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblIP.Enabled = false;
-            this.lblIP.Location = new System.Drawing.Point(435, 8);
+            this.lblIP.Location = new System.Drawing.Point(227, 8);
             this.lblIP.Name = "lblIP";
             this.lblIP.Size = new System.Drawing.Size(100, 23);
             this.lblIP.TabIndex = 50;
@@ -261,7 +251,7 @@
             this.lblUser.Enabled = false;
             this.lblUser.Location = new System.Drawing.Point(83, 8);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(309, 23);
+            this.lblUser.Size = new System.Drawing.Size(101, 23);
             this.lblUser.TabIndex = 51;
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -276,14 +266,66 @@
             this.Label32.TabIndex = 49;
             this.Label32.Text = "Zmodyfikował";
             // 
+            // cmdStart
+            // 
+            this.cmdStart.Image = global::Belfer.Properties.Resources.Top16;
+            this.cmdStart.Location = new System.Drawing.Point(466, 250);
+            this.cmdStart.Name = "cmdStart";
+            this.cmdStart.Size = new System.Drawing.Size(98, 23);
+            this.cmdStart.TabIndex = 222;
+            this.cmdStart.Text = "Na początek";
+            this.cmdStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdStart.UseVisualStyleBackColor = true;
+            // 
+            // cmdUp
+            // 
+            this.cmdUp.Image = global::Belfer.Properties.Resources.UpDown16;
+            this.cmdUp.Location = new System.Drawing.Point(466, 279);
+            this.cmdUp.Name = "cmdUp";
+            this.cmdUp.Size = new System.Drawing.Size(98, 23);
+            this.cmdUp.TabIndex = 223;
+            this.cmdUp.Text = "W górę";
+            this.cmdUp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdUp.UseVisualStyleBackColor = true;
+            // 
+            // cmdDown
+            // 
+            this.cmdDown.Image = global::Belfer.Properties.Resources.UpDown16a;
+            this.cmdDown.Location = new System.Drawing.Point(466, 308);
+            this.cmdDown.Name = "cmdDown";
+            this.cmdDown.Size = new System.Drawing.Size(98, 23);
+            this.cmdDown.TabIndex = 224;
+            this.cmdDown.Text = "W dół";
+            this.cmdDown.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdDown.UseVisualStyleBackColor = true;
+            // 
+            // cmdEnd
+            // 
+            this.cmdEnd.Image = global::Belfer.Properties.Resources.Down16;
+            this.cmdEnd.Location = new System.Drawing.Point(466, 337);
+            this.cmdEnd.Name = "cmdEnd";
+            this.cmdEnd.Size = new System.Drawing.Size(98, 23);
+            this.cmdEnd.TabIndex = 225;
+            this.cmdEnd.Text = "Na koniec";
+            this.cmdEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdEnd.UseVisualStyleBackColor = true;
+            // 
             // frmSchoolSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 523);
+            this.ClientSize = new System.Drawing.Size(576, 523);
+            this.Controls.Add(this.cmdEnd);
+            this.Controls.Add(this.cmdDown);
+            this.Controls.Add(this.cmdUp);
+            this.Controls.Add(this.cmdStart);
             this.Controls.Add(this.pnlSignature);
             this.Controls.Add(this.pnlRecord);
-            this.Controls.Add(this.olvTeacher);
+            this.Controls.Add(this.olvSubject);
             this.Controls.Add(this.cmdEdit);
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdClose);
@@ -291,7 +333,7 @@
             this.Name = "frmSchoolSubject";
             this.Text = "Przedmioty szkolne";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSchool_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.olvTeacher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.olvSubject)).EndInit();
             this.pnlRecord.ResumeLayout(false);
             this.pnlRecord.PerformLayout();
             this.pnlSignature.ResumeLayout(false);
@@ -306,10 +348,9 @@
 		internal System.Windows.Forms.Button cmdEdit;
 		internal System.Windows.Forms.Button cmdDelete;
 		internal System.Windows.Forms.Button cmdClose;
-		private BrightIdeasSoftware.ObjectListView olvTeacher;
+		private BrightIdeasSoftware.ObjectListView olvSubject;
 		internal System.Windows.Forms.Panel pnlRecord;
 		internal System.Windows.Forms.TextBox txtSeek;
-		internal System.Windows.Forms.ComboBox cbSeek;
 		internal System.Windows.Forms.Label Label1;
 		internal System.Windows.Forms.Label Label11;
 		internal System.Windows.Forms.Label lblRecord;
@@ -320,5 +361,9 @@
 		internal System.Windows.Forms.Label lblIP;
 		internal System.Windows.Forms.Label lblUser;
 		internal System.Windows.Forms.Label Label32;
-	}
+        private System.Windows.Forms.Button cmdStart;
+        private System.Windows.Forms.Button cmdUp;
+        private System.Windows.Forms.Button cmdDown;
+        private System.Windows.Forms.Button cmdEnd;
+    }
 }

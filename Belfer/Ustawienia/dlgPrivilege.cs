@@ -11,6 +11,7 @@ using Autofac;
 using DataBaseService;
 using Belfer.Administrator.Model;
 using Belfer.Ustawienia.Model;
+using Belfer.Ustawienia.SQL;
 
 namespace Belfer
 {

@@ -4,13 +4,14 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
-using Belfer.Ustawienia;
 using Autofac;
 using DataBaseService;
 using System.Data;
 using Belfer.Administrator.SQL;
 using Belfer.Administrator.Model;
 using Belfer.Helpers;
+using Belfer.Ustawienia.SQL;
+using Belfer.Ustawienia.Model;
 
 namespace Belfer
 {
@@ -22,11 +23,10 @@ namespace Belfer
         {
             InitializeComponent();
             lblRecord.Text = "";
-            ListViewConfig(olvTeacher);
-            LoadFilterCriteria();
+            ListViewConfig(olvSubject);
 
-            GenerateColumns(olvTeacher, SpecifyCols());
-            GetData(olvTeacher);
+            GenerateColumns(olvSubject, SpecifyCols());
+            GetData(olvSubject);
         }
 
         private void cmdClose_Click(object sender, EventArgs e) => Close();
@@ -34,11 +34,6 @@ namespace Belfer
         {
             var LinePen = new Pen(Color.White);
             e.Graphics.DrawLine(LinePen, pnlRecord.Left - 10, pnlRecord.Height - 1, pnlRecord.Width, pnlRecord.Height - 1);
-        }
-
-        private void LoadFilterCriteria()
-        {
-            cbSeek.DataSource = new string[] { "Nazwisko i imię", "Rola", "Status" };
         }
 
         private void ListViewConfig(ObjectListView olv)
@@ -73,9 +68,7 @@ namespace Belfer
         private List<OLVColumn> SpecifyCols()
         {
             var Cols = new List<OLVColumn>();
-            Cols.Add(new OLVColumn { Text = "Nazwisko i imię", WordWrap = true, AspectName = "Name", MinimumWidth = 100, Width = 300, FillsFreeSpace = true, HeaderTextAlign = HorizontalAlignment.Center, ToolTipText = "Nazwisko i imię użytkownika", TextAlign = HorizontalAlignment.Left, UseInitialLetterForGroup = true, HeaderCheckBox = true });
-            Cols.Add(new OLVColumn { Text = "Status", WordWrap = true, AspectName = "Status", MinimumWidth = 100, Width = 150, FillsFreeSpace = false, HeaderTextAlign = HorizontalAlignment.Center, ToolTipText = "Status użytkownika", TextAlign = HorizontalAlignment.Center, UseInitialLetterForGroup = true });
-            Cols.Add(new OLVColumn { Text = "Rola", WordWrap = true, AspectName = "Role", MinimumWidth = 100, Width = 150, FillsFreeSpace = false, HeaderTextAlign = HorizontalAlignment.Center, ToolTipText = "Rola użytkownika", TextAlign = HorizontalAlignment.Center, UseInitialLetterForGroup = true });
+            Cols.Add(new OLVColumn { Text = "Nazwa przedmiotu", WordWrap = true, AspectName = "Name", MinimumWidth = 100, Width = 300, FillsFreeSpace = true, HeaderTextAlign = HorizontalAlignment.Center, ToolTipText = "Nazwa przedmiotu", TextAlign = HorizontalAlignment.Left, UseInitialLetterForGroup = true, HeaderCheckBox = true });
 
             return Cols;
         }
@@ -91,7 +84,7 @@ namespace Belfer
             {
                 EnableButton(false);
                 olv.BeginUpdate();
-                olv.SetObjects(GetSchoolTeacherList().Result);
+                olv.SetObjects(GetSchoolSubjectList().Result);
                 olv.EndUpdate();
                 olv.Enabled = olv.Items.Count > 0;
                 lblRecord.Text = "0 z " + olv.Items.Count;
@@ -102,49 +95,31 @@ namespace Belfer
             }
         }
 
-        private async Task<IEnumerable<Teacher>> GetSchoolTeacherList()
+        private async Task<IEnumerable<SchoolSubjectModel>> GetSchoolSubjectList()
         {
             try
-            {               
+            {
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.FetchRecordSetAsync(TeacherSQL.SelectTeacher(UserSession.User.Settings.SchoolID.ToString()), TeacherModel);
+                    return await dbs.FetchRecordSetAsync(SubjectSQL.SelectSchoolSubject(UserSession.User.Settings.SchoolID.ToString()), SchoolSubjectModel.CreateSchoolSubject);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new HashSet<Teacher>();
+                return new HashSet<SchoolSubjectModel>();
             }
         }
 
-        private Teacher TeacherModel(IDataReader R)
-        {
-            return new Teacher
-            {
-                ID = Convert.ToInt32(R["ID"]),
-                Login = R["Login"].ToString(),
-                FirstName = R["Imie"].ToString(),
-                LastName = R["Nazwisko"].ToString(),
-                Status = (User.UserStatus)Convert.ToInt64(R["Status"]),
-                Role = (User.UserRole)Convert.ToByte(R["Role"]),
-                Creator = new Signature
-                {
-                    Owner = R["Owner"].ToString(),
-                    User = R["User"].ToString(),
-                    IP = R["ComputerIP"].ToString(),
-                    Version = Convert.ToDateTime(R["Version"])
-                }
-            };
-        }
+
 
         private void olvSzkola_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (e.IsSelected)
             {
                 lblRecord.Text = (e.ItemIndex + 1) + " z " + e.Item.ListView.Items.Count;
-                GetSignature((Teacher)((OLVListItem)e.Item).RowObject);
+                GetSignature((SchoolSubjectModel)((OLVListItem)e.Item).RowObject);
                 //EnableButton(true);
                 cmdEdit.Enabled = true;
             }
@@ -156,7 +131,7 @@ namespace Belfer
             }
         }
 
-        private void GetSignature(Teacher SchoolItem)
+        private void GetSignature(SchoolSubjectModel SchoolItem)
         {
             lblUser.Text = SchoolItem.Creator.ToString();
             lblIP.Text = SchoolItem.Creator.IP;
@@ -190,7 +165,7 @@ namespace Belfer
                     var Rec = AddSchoolTeacher(TeacherList);
                     if (Rec > 0)
                     {
-                        GetData(olvTeacher);
+                        GetData(olvSubject);
                         MessageBox.Show("Dodano rekordów: " + Rec.ToString(), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -242,13 +217,13 @@ namespace Belfer
                 {
                     var recordCount = 0;
                     var sqlParamWithValue = new HashSet<Tuple<string, object>>();
-                    foreach (Teacher t in olvTeacher.CheckedObjects) sqlParamWithValue.Add(new Tuple<string, object>("@ID", t.ID));
+                    foreach (Teacher t in olvSubject.CheckedObjects) sqlParamWithValue.Add(new Tuple<string, object>("@ID", t.ID));
                     using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                     {
                         var dbs = scope.Resolve<IDataBaseService>();
                         recordCount = dbs.RemoveManyRecordsAsync(TeacherSQL.DeleteTeacher(), sqlParamWithValue).Result;
                     }
-                    GetData(olvTeacher);
+                    GetData(olvSubject);
                     MessageBox.Show($"Liczba usuniętych rekordów: {recordCount}", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -267,10 +242,10 @@ namespace Belfer
         {
             try
             {
-                if (olvTeacher.SelectedObject == null) return;
+                if (olvSubject.SelectedObject == null) return;
                 using (var dlg = new dlgTeacher())
                 {
-                    var T = (Teacher)olvTeacher.SelectedObject;
+                    var T = (Teacher)olvSubject.SelectedObject;
                     FillDialog(dlg, T);
 
                     if (dlg.ShowDialog() == DialogResult.OK)
@@ -279,8 +254,8 @@ namespace Belfer
                         if (UpdateTeacherAsync(dlg, T.ID).Result > 0)
                         {
                             //cmd.CommitTransaction();
-                            GetData(olvTeacher);
-                            SeekHelper.SetListItem<Teacher, int>(T.ID, "ID", olvTeacher);
+                            GetData(olvSubject);
+                            SeekHelper.SetListItem<Teacher, int>(T.ID, "ID", olvSubject);
                             return;
                         }
                         throw new Exception("Aktualizacja danych nie powiodła się!");
@@ -328,19 +303,8 @@ namespace Belfer
 
         private void txtSeek_TextChanged(object sender, EventArgs e)
         {
-            switch (cbSeek.SelectedIndex)
-            {
-                case 0://Nazwisko i imię
-                    olvTeacher.ModelFilter = new ModelFilter(x => ((Teacher)x).Name.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
-                    break;
-                case 1://Rola
-                    olvTeacher.ModelFilter = new ModelFilter(x => ((Teacher)x).Role.ToString().StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
-                    break;
-                case 2: //Status
-                    olvTeacher.ModelFilter = new ModelFilter(x => ((Teacher)x).Status.ToString().StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
-                    break;
-            }
-            lblRecord.Text = "0 z " + olvTeacher.GetItemCount();
+            olvSubject.ModelFilter = new ModelFilter(x => ((SchoolSubjectModel)x).Name.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
+            lblRecord.Text = "0 z " + olvSubject.GetItemCount();
         }
 
         private void cbSeek_SelectedIndexChanged(object sender, EventArgs e)
@@ -351,7 +315,7 @@ namespace Belfer
 
         private void olvTeacher_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            cmdDelete.Enabled = olvTeacher.CheckedObjects.Count > 0;
+            cmdDelete.Enabled = olvSubject.CheckedObjects.Count > 0;
         }
     }
 

@@ -7,6 +7,7 @@ using Autofac;
 using DataBaseService;
 using Belfer.DataBaseContext;
 using System.Threading.Tasks;
+using Belfer.Ustawienia.SQL;
 
 namespace Belfer
 {

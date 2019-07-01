@@ -3,6 +3,7 @@ using Belfer.Administrator.Model;
 using Belfer.Dziennik;
 using Belfer.Helpers;
 using Belfer.Ustawienia;
+using Belfer.Ustawienia.SQL;
 using BrightIdeasSoftware;
 using DataBaseService;
 using System;

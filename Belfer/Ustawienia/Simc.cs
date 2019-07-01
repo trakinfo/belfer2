@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Belfer.Ustawienia;
+using Belfer.Ustawienia.SQL;
 using DataBaseService;
 using System.Collections.Generic;
 using System.Data;

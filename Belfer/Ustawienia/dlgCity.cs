@@ -5,6 +5,7 @@ using Belfer.Ustawienia;
 using Autofac;
 using DataBaseService;
 using Belfer.Helpers;
+using Belfer.Ustawienia.SQL;
 
 namespace Belfer
 {

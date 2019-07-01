@@ -9,6 +9,7 @@ using Autofac;
 using DataBaseService;
 using System.Data;
 using Belfer.Helpers;
+using Belfer.Ustawienia.SQL;
 
 namespace Belfer
 {

@@ -377,6 +377,7 @@
     <Compile Include="Ustawienia\Model\ExclusioDetails.cs" />
     <Compile Include="Ustawienia\Model\Exclusion.cs" />
     <Compile Include="Ustawienia\Model\Privilege.cs" />
+    <Compile Include="Ustawienia\Model\SchoolSubjectModel.cs" />
     <Compile Include="Ustawienia\Simc.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -390,7 +391,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ustawienia\SQL.cs" />
+    <Compile Include="Ustawienia\SQL\CitySQL.cs" />
+    <Compile Include="Ustawienia\SQL\PrivilegeSQL.cs" />
+    <Compile Include="Ustawienia\SQL\SchoolClassSQL.cs" />
+    <Compile Include="Ustawienia\SQL\SchoolSQL.cs" />
+    <Compile Include="Ustawienia\SQL\SubjectSchemeSQL.cs" />
+    <Compile Include="Ustawienia\SQL\SubjectSQL.cs" />
+    <Compile Include="Ustawienia\SQL\TeacherSQL.cs" />
+    <Compile Include="Ustawienia\SQL\TutorSQL.cs" />
     <EmbeddedResource Include="Program\dlgTestConnection.resx">
       <DependentUpon>dlgTestConnection.cs</DependentUpon>
     </EmbeddedResource>
@@ -556,6 +564,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Belfer_48.ico" />
+    <None Include="Resources\Down16.png" />
+    <None Include="Resources\Top16.png" />
+    <None Include="Resources\UpDown16.png" />
+    <None Include="Resources\UpDown16a.png" />
     <None Include="Resources\Belfer.png" />
     <None Include="Resources\open_24.png" />
     <None Include="Resources\refresh_24.png" />
@@ -603,9 +615,7 @@
       <Name>Enigma</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ustawienia\SQL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
