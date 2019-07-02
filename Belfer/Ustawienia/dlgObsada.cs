@@ -8,6 +8,7 @@ using Autofac;
 using Belfer.DataBaseContext;
 using Belfer.Helpers;
 using Belfer.Ustawienia;
+using Belfer.Ustawienia.Model;
 using Belfer.Ustawienia.SQL;
 using DataBaseService;
 
@@ -87,14 +88,14 @@ namespace Belfer
             cmdOK.Enabled = false;
         }
 
-        async Task<IEnumerable<Subject>> GetSubjectList(string ClassId)
+        async Task<IEnumerable<SubjectModel>> GetSubjectList(string ClassId)
         {
             try
             {
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.FetchRecordSetAsync(SubjectSQL.SelectSchoolSubject(UserSession.User.Settings.SchoolID.ToString(), ClassId), (R) => new Subject()
+                    return await dbs.FetchRecordSetAsync(SubjectSQL.SelectSchoolSubject(UserSession.User.Settings.SchoolID.ToString(), ClassId), (R) => new SubjectModel()
                     {
                         ID = Convert.ToInt32(R["ID"]),
                         Alias = R["Alias"].ToString()
@@ -105,7 +106,7 @@ namespace Belfer
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new HashSet<Subject>();
+                return new HashSet<SubjectModel>();
             }
         }
 
@@ -168,7 +169,7 @@ namespace Belfer
         {
             var schemeParams = new Dictionary<string, object>();
             schemeParams.Add("@Klasa", idClass);
-            schemeParams.Add("@Przedmiot", ((Subject)cbPrzedmiot.SelectedItem).ID);
+            schemeParams.Add("@Przedmiot", ((SubjectModel)cbPrzedmiot.SelectedItem).ID);
             schemeParams.Add("@Grupa", chkGrupa.Checked);
             schemeParams.Add("@Kategoria", chkKategoria.Checked ? "o" : "n");
             schemeParams.Add("@Avg", chkAvg.Checked);

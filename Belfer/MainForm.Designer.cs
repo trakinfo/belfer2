@@ -81,6 +81,7 @@
             this.UstawieniatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KonfiguracjatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeUserPasswordtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MojePrzywilejetoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.StrukturatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SzkolatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,7 +175,6 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statStacja = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlpQuickAccess = new System.Windows.Forms.TableLayoutPanel();
-            this.MojePrzywilejetoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.MainStatusLeft.SuspendLayout();
             this.tsQuickAccess.SuspendLayout();
@@ -573,6 +573,12 @@
             this.ChangeUserPasswordtoolStripMenuItem.Text = "Zmiana hasła";
             this.ChangeUserPasswordtoolStripMenuItem.Click += new System.EventHandler(this.ChangeUserPasswordtoolStripMenuItem_Click);
             // 
+            // MojePrzywilejetoolStripMenuItem
+            // 
+            this.MojePrzywilejetoolStripMenuItem.Name = "MojePrzywilejetoolStripMenuItem";
+            this.MojePrzywilejetoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.MojePrzywilejetoolStripMenuItem.Text = "Moje uprawnienia i ograniczenia";
+            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
@@ -733,12 +739,14 @@
             this.KlasytoolStripMenuItem.Name = "KlasytoolStripMenuItem";
             this.KlasytoolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.KlasytoolStripMenuItem.Text = "Oddziały klasowe";
+            this.KlasytoolStripMenuItem.Click += new System.EventHandler(this.KlasytoolStripMenuItem_Click);
             // 
             // PrzedmiotytoolStripMenuItem
             // 
             this.PrzedmiotytoolStripMenuItem.Name = "PrzedmiotytoolStripMenuItem";
             this.PrzedmiotytoolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.PrzedmiotytoolStripMenuItem.Text = "Przedmioty nauczania";
+            this.PrzedmiotytoolStripMenuItem.Click += new System.EventHandler(this.PrzedmiotytoolStripMenuItem_Click);
             // 
             // SkalaOcenWzorzectoolStripMenuItem
             // 
@@ -1390,12 +1398,6 @@
             this.tlpQuickAccess.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpQuickAccess.Size = new System.Drawing.Size(37, 482);
             this.tlpQuickAccess.TabIndex = 8;
-            // 
-            // MojePrzywilejetoolStripMenuItem
-            // 
-            this.MojePrzywilejetoolStripMenuItem.Name = "MojePrzywilejetoolStripMenuItem";
-            this.MojePrzywilejetoolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.MojePrzywilejetoolStripMenuItem.Text = "Moje uprawnienia i ograniczenia";
             // 
             // MainForm
             // 

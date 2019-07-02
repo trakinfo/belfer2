@@ -259,8 +259,22 @@ namespace Belfer
         {
             var frm = new frmSchoolSubject();
             SetFormProperties(frm);
-            TypySzkoltoolStripMenuItem.Enabled = false;
-            frm.TheEnd += (s, ex) => TypySzkoltoolStripMenuItem.Enabled = true;
+            PrzydzialPrzedmiotowtoolStripMenuItem.Enabled = false;
+            frm.TheEnd += (s, ex) => PrzydzialPrzedmiotowtoolStripMenuItem.Enabled = true;
+            frm.Show();
+        }
+
+        private void KlasytoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PrzedmiotytoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new frmSubject();
+            SetFormProperties(frm);
+            PrzedmiotytoolStripMenuItem.Enabled = false;
+            frm.TheEnd += (s, ex) => PrzedmiotytoolStripMenuItem.Enabled = true;
             frm.Show();
         }
     }

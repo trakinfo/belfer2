@@ -1,4 +1,6 @@
-﻿namespace Belfer.Ustawienia.SQL
+﻿using System;
+
+namespace Belfer.Ustawienia.SQL
 {
     public static class SubjectSQL
     {
@@ -19,5 +21,9 @@
             return $"SELECT p.ID, p.Alias, p.Nazwa, p.Typ, p.Priorytet, p.Owner, p.User, p.ComputerIP, p.Version FROM przedmiot p ORDER BY p.Priorytet;";
         }
 
+        internal static string DeleteSubject()
+        {
+            return $"DELETE FROM przedmiot WHERE ID=@ID;";
+        }
     }
 }

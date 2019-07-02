@@ -10,6 +10,7 @@ using DataBaseService;
 using Autofac;
 using Belfer.Helpers;
 using Belfer.Ustawienia.SQL;
+using Belfer.Ustawienia.Model;
 
 namespace Belfer
 {
@@ -108,10 +109,10 @@ namespace Belfer
             switch (cbSeek.SelectedIndex)
             {
                 case 0://Klasa
-                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectScheme)x).ClassName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
+                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectSchemeModel)x).ClassName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
                 case 1://Przedmiot
-                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectScheme)x).SubjectName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
+                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectSchemeModel)x).SubjectName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
             }
             lblRecord.Text = "0 z " + olvObsada.GetItemCount();
@@ -181,7 +182,7 @@ namespace Belfer
         {
             if (e.Column.AspectName == "LessonCount")
             {
-                var R = e.RowObject as SubjectScheme;
+                var R = e.RowObject as SubjectSchemeModel;
                 R.LessonCount = Convert.ToSingle(e.NewValue);
                 e.Cancel = true;
                 olvObsada.RefreshObject(e.RowObject);
@@ -197,7 +198,7 @@ namespace Belfer
         {
             if (e.Column.AspectName == "StartDate")
             {
-                var D = e.RowObject as SubjectScheme;
+                var D = e.RowObject as SubjectSchemeModel;
                 if ((DateTime)e.NewValue > D.EndDate)
                 {
                     e.Cancel = true;
@@ -206,7 +207,7 @@ namespace Belfer
             }
             else if (e.Column.AspectName == "EndDate")
             {
-                var D = e.RowObject as SubjectScheme;
+                var D = e.RowObject as SubjectSchemeModel;
                 if ((DateTime)e.NewValue < D.StartDate)
                 {
                     e.Cancel = true;
@@ -215,7 +216,7 @@ namespace Belfer
             }
         }
     }
-    public class SubjectSchemeImport : SubjectScheme
+    public class SubjectSchemeImport : SubjectSchemeModel
     {
         public int ClassID { get; set; }
         public int SubjectID { get; set; }

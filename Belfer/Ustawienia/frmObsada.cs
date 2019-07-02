@@ -13,6 +13,7 @@ using Autofac;
 using Belfer.Administrator.Model;
 using Belfer.Helpers;
 using Belfer.Ustawienia.SQL;
+using Belfer.Ustawienia.Model;
 
 namespace Belfer
 {
@@ -110,14 +111,14 @@ namespace Belfer
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private async Task<IEnumerable<SubjectScheme>> GetSubjectList()
+        private async Task<IEnumerable<SubjectSchemeModel>> GetSubjectList()
         {
             try
             {
                 using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                 {
                     var dbs = scope.Resolve<IDataBaseService>();
-                    return await dbs.FetchRecordSetAsync(SubjectSchemeSQL.SelectScheme(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear), SubjectSchemeModel);
+                    return await dbs.FetchRecordSetAsync(SubjectSchemeSQL.SelectScheme(UserSession.User.Settings.SchoolID.ToString(), UserSession.User.Settings.SchoolYear), SubjectSchemeModel.Create);
                 }
             }
             catch (Exception)
@@ -126,28 +127,6 @@ namespace Belfer
             }
         }
 
-        private SubjectScheme SubjectSchemeModel(IDataReader R)
-        {
-            return new SubjectScheme
-            {
-                ID = Convert.ToInt32(R["ID"]),
-                ClassName = R["NazwaKlasy"].ToString(),
-                SubjectName = R["Nazwa"].ToString(),
-                Group = (YesNo)Convert.ToInt64(R["Grupa"]),
-                SubjectCategory = R["Kategoria"].ToString(),
-                ToAvg = (YesNo)Convert.ToInt64(R["GetToAverage"]),
-                StartDate = Convert.ToDateTime(R["DataAktywacji"]),
-                EndDate = Convert.ToDateTime(R["DataDeaktywacji"]),
-                LessonCount = Convert.ToSingle(R["LiczbaGodzin"]),
-                Creator = new Signature
-                {
-                    Owner = R["Owner"].ToString(),
-                    User = R["User"].ToString(),
-                    IP = R["ComputerIP"].ToString(),
-                    Version = Convert.ToDateTime(R["Version"])
-                }
-            };
-        }
 
         private void cmdClose_Click(object sender, EventArgs e) => Close();
 
@@ -156,7 +135,7 @@ namespace Belfer
             if (e.IsSelected)
             {
                 lblRecord.Text = (e.ItemIndex + 1) + " z " + e.Item.ListView.Items.Count;
-                GetSignature((SubjectScheme)((OLVListItem)e.Item).RowObject);
+                GetSignature((SubjectSchemeModel)((OLVListItem)e.Item).RowObject);
                 //EnableButton(true);
             }
             else
@@ -167,7 +146,7 @@ namespace Belfer
             }
         }
 
-        private void GetSignature(SubjectScheme UserItem)
+        private void GetSignature(SubjectSchemeModel UserItem)
         {
             lblData.Text = UserItem.Creator.Version.ToString();
             lblIP.Text = UserItem.Creator.IP;
@@ -211,7 +190,7 @@ namespace Belfer
             try
             {
                 if (olvObsada.SelectedObject == null) return;
-                var P = olvObsada.SelectedObject as SubjectScheme;
+                var P = olvObsada.SelectedObject as SubjectSchemeModel;
                 using (var dlg = new dlgObsada(false))
                 {
                     FillDialog(dlg, P);
@@ -236,7 +215,7 @@ namespace Belfer
 
         }
 
-        private async Task<int> UpdateSubjectAsync(dlgObsada dlg, SubjectScheme P)
+        private async Task<int> UpdateSubjectAsync(dlgObsada dlg, SubjectSchemeModel P)
         {
             using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
             {
@@ -245,7 +224,7 @@ namespace Belfer
             }
         }
 
-        IDictionary<string, object> CreateUpdateParams(dlgObsada dlg, SubjectScheme p)
+        IDictionary<string, object> CreateUpdateParams(dlgObsada dlg, SubjectSchemeModel p)
         {
             var sqlParamWithValue = new Dictionary<string, object>();
             sqlParamWithValue.Add("@ID", p.ID);
@@ -260,7 +239,7 @@ namespace Belfer
             return sqlParamWithValue;
         }
 
-        private void FillDialog(dlgObsada dlg, SubjectScheme P)
+        private void FillDialog(dlgObsada dlg, SubjectSchemeModel P)
         {
             dlg.Text = "Edycja danych";
             dlg.cbKlasa.Enabled = false;
@@ -289,7 +268,7 @@ namespace Belfer
                 {
                     var recordCount = 0;
                     var sqlParamWithValue = new HashSet<Tuple<string, object>>();
-                    foreach (SubjectScheme ss in olvObsada.CheckedObjects) sqlParamWithValue.Add(new Tuple<string, object>("@ID", ss.ID));
+                    foreach (SubjectSchemeModel ss in olvObsada.CheckedObjects) sqlParamWithValue.Add(new Tuple<string, object>("@ID", ss.ID));
                     using (var scope = AppSession.TypeContainer.BeginLifetimeScope())
                     {
                         var dbs = scope.Resolve<IDataBaseService>();
@@ -309,7 +288,7 @@ namespace Belfer
         {
             RefreshData();
             //SetListViewItem(RecordID);
-            SeekHelper.SetListItem<SubjectScheme, long>(RecordID, "ID", olvObsada);
+            SeekHelper.SetListItem<SubjectSchemeModel, long>(RecordID, "ID", olvObsada);
         }
 
         private void RefreshData()
@@ -330,10 +309,10 @@ namespace Belfer
             switch (cbSeek.SelectedIndex)
             {
                 case 0://Klasa
-                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectScheme)x).ClassName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
+                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectSchemeModel)x).ClassName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
                 case 1://Przedmiot
-                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectScheme)x).SubjectName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
+                    olvObsada.ModelFilter = new ModelFilter(x => ((SubjectSchemeModel)x).SubjectName.StartsWith(txtSeek.Text, StringComparison.CurrentCultureIgnoreCase));
                     break;
             }
             lblRecord.Text = "0 z " + olvObsada.GetItemCount();
@@ -493,7 +472,7 @@ namespace Belfer
 
                 while (y + LineHeight < PrintHeight && PH.Offset[1] < olvObsada.Groups[PH.Offset[0]].Items.Count)
                 {
-                    PrintObjectData(olvObsada.OLVGroups[PH.Offset[0]].Items[PH.Offset[1]].RowObject as SubjectScheme, x, ref y, Kolumna, TextFont, LineHeight);
+                    PrintObjectData(olvObsada.OLVGroups[PH.Offset[0]].Items[PH.Offset[1]].RowObject as SubjectSchemeModel, x, ref y, Kolumna, TextFont, LineHeight);
                     PH.Offset[1]++;
                 }
                 if (PH.Offset[1] < olvObsada.OLVGroups[PH.Offset[0]].Items.Count)
@@ -513,7 +492,7 @@ namespace Belfer
             }
             #endregion
         }
-        private void PrintObjectData(SubjectScheme Node, float x, ref float y, List<TableCellWithAlignment> PrintCol, Font PrintFont, float LineHeight)
+        private void PrintObjectData(SubjectSchemeModel Node, float x, ref float y, List<TableCellWithAlignment> PrintCol, Font PrintFont, float LineHeight)
         {
             List<string> AspectToPrint = new List<string>();
 
@@ -540,34 +519,5 @@ namespace Belfer
             if (olvObsada.CheckedObjects.Count > 0) EnableButton(true);
             else EnableButton(false);
         }
-    }
-
-    public class SubjectScheme
-    {
-        public int ID { get; set; }
-        public string ClassName { get; set; }
-        public string SubjectName { get; set; }
-        public YesNo Group { get; set; }
-        public string SubjectCategory { get; set; }
-        public YesNo ToAvg { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public float LessonCount { get; set; }
-        public Signature Creator { get; set; }
-    }
-
-    public class Subject
-    {
-        public virtual int ID { get; set; }
-        public string Alias { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public virtual int Priority { get; set; }
-        public Signature Creator { get; set; }
-
-        public override string ToString()
-        {
-            return Alias;
-        }
-    }
+    }   
 }

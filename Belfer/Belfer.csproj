@@ -246,6 +246,12 @@
     <Compile Include="Dziennik\Uczniowie\dlgStudent.Designer.cs">
       <DependentUpon>dlgStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ustawienia\dlgSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\dlgSubject.Designer.cs">
+      <DependentUpon>dlgSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ustawienia\dlgSchoolType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,12 @@
     </Compile>
     <Compile Include="Ustawienia\frmSchoolSubject.Designer.cs">
       <DependentUpon>frmSchoolSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia\frmSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia\frmSubject.Designer.cs">
+      <DependentUpon>frmSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Ustawienia\frmSchoolType.cs">
       <SubType>Form</SubType>
@@ -378,6 +390,8 @@
     <Compile Include="Ustawienia\Model\Exclusion.cs" />
     <Compile Include="Ustawienia\Model\Privilege.cs" />
     <Compile Include="Ustawienia\Model\SchoolSubjectModel.cs" />
+    <Compile Include="Ustawienia\Model\SubjectModel.cs" />
+    <Compile Include="Ustawienia\Model\SubjectSchemeModel.cs" />
     <Compile Include="Ustawienia\Simc.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -453,6 +467,9 @@
     <EmbeddedResource Include="Dziennik\Uczniowie\dlgStudent.resx">
       <DependentUpon>dlgStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\dlgSubject.resx">
+      <DependentUpon>dlgSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ustawienia\dlgSchoolType.resx">
       <DependentUpon>dlgSchoolType.cs</DependentUpon>
     </EmbeddedResource>
@@ -479,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ustawienia\frmSchoolSubject.resx">
       <DependentUpon>frmSchoolSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia\frmSubject.resx">
+      <DependentUpon>frmSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ustawienia\frmSchoolType.resx">
       <DependentUpon>frmSchoolType.cs</DependentUpon>
